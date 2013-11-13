@@ -1,1 +1,28 @@
 <h1> Issues </h1>
+
+<ul>
+
+		<% @issues.each do |i| %>
+			<li>
+				<%= i.title %>
+			</li>	
+				<ul>		
+					<li>
+						<%= i.desc %>
+					</li>	
+					<li>
+						<%= i.funding_goal %>
+					</li>	
+					<li>
+						<%= i.pledged_total %>
+					</li>	
+					<li>
+						<%= i.num_backers %>
+					</li>	
+					<li>
+						<%= i.funding_date %>
+					</li>
+				</ul>	
+		<% end %>
+
+<ul>

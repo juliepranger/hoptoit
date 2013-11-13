@@ -1,0 +1,41 @@
+model
+
+class Issue < ActiveRecord::Base
+
+
+
+
+	#belongs_to :user
+
+
+end 
+
+
+
+index
+
+
+<h1> Issues </h1>
+
+
+new
+
+
+<h1> New Issue </h1>
+
+<%= form_for @issue do |issue|%>
+Title:<%= issue.title%>
+Description:<%= issue.description%>
+Funding Goal:<%= issue.fundingGoal%>
+Pleged Total:<%= issue.plegedTotal%>
+Number of Backers:<%= issue.noBackers%>
+Funding Date:<%= issue.fundingDate%>
+<% end %>
+
+
+routes
+
+  get 'issues' => 'issues#index'
+
+  get 'issues/new' => 'issues#new'
+  post 'issues' => 'issues#create'

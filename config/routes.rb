@@ -8,6 +8,7 @@ Hoptoit::Application.routes.draw do
   get 'issues' => 'issues#index'
 
   get 'issues/new' => 'issues#new'
+  post 'issues' => 'issues#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
