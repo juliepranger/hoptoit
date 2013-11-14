@@ -4,23 +4,23 @@
 
 		<% @issues.each do |i| %>
 			<li>
-				<%= i.title %>
+				Title:<%= i.title %>
 			</li>	
 				<ul>		
 					<li>
-						<%= i.desc %>
+						Description: <%= i.desc %>
 					</li>	
 					<li>
-						<%= i.funding_goal %>
+						Funding Goal:<%= i.funding_goal %>
 					</li>	
 					<li>
-						<%= i.pledged_total %>
+						Pleged Total: <%= i.pledged_total %>
 					</li>	
 					<li>
-						<%= i.num_backers %>
+						Number of Backers: <%= i.num_backers %>
 					</li>	
 					<li>
-						<%= i.funding_date %>
+						Funding Date: <%= i.funding_date %>
 					</li>
 				</ul>	
 		<% end %>
