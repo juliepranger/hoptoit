@@ -1,0 +1,17 @@
+=form_for @org do |f|
+  =f.text_field :organization_name, placeholder: "Organization Name"
+  %br
+  =f.text_field :ein, placeholder: "EIN"
+  %br
+  =f.text_area :description, placeholder: "A description of your organization"
+  %br
+  =f.text_field :phone, {placeholder: "Phone Number", type: "tel"}
+  %br
+  =f.text_field :website_url, {placeholder: "The url of your website", type: "url"}
+  %br
+  %fieldset
+    =f.text_field :address, placeholder: "Address"
+    =f.text_field :city, placeholder: "City"
+    =f.text_field :state, placeholder: "State"
+    =f.text_field :zipcode, {placeholder: "Zip Code", type: "tel"}
+  =f.submit

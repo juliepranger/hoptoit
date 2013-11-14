@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+#use Passenger as the production server ('cause it's awesome) (EP)
+gem 'passenger'
+
+#I prefer to program in HAML... it save SO much time (EP)
+gem 'haml'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 gem 'haml'
@@ -44,6 +50,12 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :development, :test do 
+group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'guard-rspec'
 end

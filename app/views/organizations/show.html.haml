@@ -1,0 +1,14 @@
+%h1=@org.organization_name
+
+=@org.ein
+=@org.phone
+=@org.address
+=@org.city
+=@org.state
+=@org.zipcode
+=@org.description
+=@org.website_url
+%br
+=link_to "edit", edit_organization_path(@org)
+=link_to "delete", organization_path, method:'delete'
+=link_to "index", organizations_path
