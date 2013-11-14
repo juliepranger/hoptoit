@@ -9,11 +9,29 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = Robot.find(params[:id])
+		@user = User.find(params[:id])
 	end
 
 	def create
 		 User.create(params[:user].permit([:first_name, :last_name, :email, :address, :city, :state, :zipcode]))
 	  redirect_to users_url
-	 end
+	end
+
+	def edit
+		@user = User.find(params[:id])
+	end
+
+	def update
+		@user = User.find(params[:id])
+		if @user.update_attributes(params[:user].permit(:first_name, :last_name, :email, :address, :city, :state, :zipcode))
+			redirect_to action: 'show', id: @user
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		User.find(params[:id]).destroy
+		redirect_to users_url
+	end
 end
