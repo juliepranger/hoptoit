@@ -1,0 +1,17 @@
+<h1>Show Page</h1>
+
+<h3>User Info</h3>
+
+<p>
+Name: <%= @user.first_name + " " + @user.last_name %></br>
+Email:	<%= @user.email %></br>
+Address:	<%= @user.address %></br>
+City:	<%= @user.city %></br>
+State:	<%= @user.state %></br>
+Zipcode:	<%= @user.zipcode %></br>
+</p>
+
+<%= button_to "Add Organization", new_organization_url(@user),
+	controller: :organizations, action: :new, method: :get %>
+
+<%= button_to "Add Issue", new_issue_url(@user.id), controller: :issues, action: :create, method: :get %>

@@ -1,0 +1,47 @@
+<h1>Edit Your Information </h1>
+
+	<%= form_for @user do |user| %>
+<p>
+	<%= user.label :first_name, "First Name" %>
+	<%= user.text_field :first_name %>
+</p>
+
+<p>
+	<%= user.label :last_name, "Last Name" %>
+	<%= user.text_field :last_name %>
+</p>
+
+<p>
+	<%= user.label :email, "E-mail" %>
+	<%= user.text_field :email %>
+</p>
+
+<p>
+	<%= user.label :address, "Street Address" %>
+	<%= user.text_field :address %>
+</p>
+
+<p>
+	<%= user.label :city, "City" %>
+	<%= user.text_field :city %>
+</p>
+
+<p>
+	<%= user.label :state, "State" %>
+	<%= user.text_field :state %>
+</p>
+
+<p>
+	<%= user.label :zipcode, "Zipcode" %>
+	<%= user.text_field :zipcode %>
+</p>
+
+<p>
+	<%= user.hidden_field :userid, value: session[:user_id] %>
+</p>
+
+<p>
+	<%= user.submit %> 
+</p>
+
+<%end%>

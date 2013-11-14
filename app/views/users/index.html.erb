@@ -1,0 +1,20 @@
+<h1>Users Index</h1>
+
+<ul>
+<% @users.each do |user| %>
+
+	<li><%= user.first_name + " " + user.last_name %></br>
+	<%= user.email %></br>
+	<%= user.address %></br>
+	<%= user.city %></br>
+	<%= user.state %></br>
+	<%= user.zipcode %></li>
+
+</ul>
+
+<ul>
+	<li><%= button_to "View User", user_url(user.id), controller: :users, action: :show, method: :get %></li>
+	<li><%= button_to "Edit User Info", edit_user_url(user.id), controller: :users, action: :edit, method: :get %></li>
+	<li><%= button_to "Delete", {action: "destroy", id: user.id}, {method: :delete, data:{confirm: "Are you sure?"}, :class => "button"} %></li></br>
+</ul>
+<% end %>
