@@ -1,0 +1,14 @@
+<h1>Users Index</h1>
+
+<ul>
+<% @users.each do |r| %>
+
+	<li><%= r.first_name + " " + r.last_name %></br>
+	<%= r.email %></br>
+	<%= r.address %></br>
+	<%= r.city %></br>
+	<%= r.state %></br>
+	<%= r.zipcode %></li>
+
+	<% end %>
+</ul>
