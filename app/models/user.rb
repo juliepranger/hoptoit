@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
-	validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :email, presence: true
-  validates :address, presence: true
-  validates :city, presence: true
-  validates :state, presence: true
-  validates :zipcode, presence: true
+	validates_presence_of :first_name
+  validates_presence_of :last_name
+  validates_presence_of :email
+  validates_presence_of :address
+  validates_presence_of :city
+  validates_presence_of :state
+  validates_presence_of :zipcode
 
   has_many :issues
   has_and_belongs_to_many :organizations
