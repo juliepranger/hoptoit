@@ -4,8 +4,21 @@
 
 <%= form_for @user do |user| %>
 
-	<%= user.label :first_name, "First Name" %>
-	<%= user.text_field :first_name %><br />
+	<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<%= u.label :first_name, "First Name" %>
+	<%= u.text_field :first_name %><br />
+>>>>>>> Action Mailer working with Letter Opener, Gmail capability is commented out for now
 
 	<%= user.label :last_name, "Last Name" %>
 	<%= user.text_field :last_name %><br />
