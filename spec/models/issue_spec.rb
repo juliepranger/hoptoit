@@ -1,7 +1,16 @@
 require 'spec_helper'
 
-describe Issue  do
-  it 'is invalid wihtout a title ' do 
+describe Issue do
+
+  it 'is invalid without a title ' do 
     expect(Issue.create()).to be_invalid
-  end  
+  end 	
+
+  it 'is valid with title =' do
+  	expect(Issue.create(:title => 'test title')).to be_valid
+  end
+
+  it 'shows all the issues'do
+  	should show_all :issues
+  end
 end
