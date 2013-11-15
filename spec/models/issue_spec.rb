@@ -9,4 +9,8 @@ describe Issue do
   it 'is valid with title =' do
   	expect(Issue.create(:title => 'test title')).to be_valid
   end
+
+  it 'shows all the issues'do
+  	should show_all :issues
+  end
 end
