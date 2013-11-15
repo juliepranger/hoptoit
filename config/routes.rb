@@ -10,6 +10,12 @@ Hoptoit::Application.routes.draw do
   get 'issues/new' => 'issues#new'
   post 'issues' => 'issues#create'
 
+  get 'issues/:id/edit' => 'issues#edit'
+  post 'issues/:id/edit' => 'issues#update'
+
+  post 'issues/:id/destroy' => 'issues#destroy'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
