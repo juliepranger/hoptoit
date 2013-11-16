@@ -1,11 +1,22 @@
 <h1> New Issue </h1>
 
 <%= form_for @issue do |issue|%>
-	<%= issue.text_field :title %>
-	<%= issue.text_area :desc %>
-	<%= issue.text_field :funding_goal, type: "number" %>
-	<%= issue.text_field :pledged_total, type: "number"  %>
-	<%= issue.text_field :num_backers, type: "number" %>
-	<%= issue.text_field :funding_date, type: "datetime" %>
-	<%= issue.submit %>
+	<ul>
+		<li>	
+			Title:<%= issue.text_field :title %>
+		</li>	
+		<li>
+			Description:<%= issue.text_area :desc %>
+		</li>	
+		<li>	
+			Funding Goal:<%= issue.text_field :funding_goal, type: "number" %>
+		</li>	
+		<li>	
+			Date to be funded by:<%= issue.text_field :funding_date, type: "datetime" %>
+		</li>	
+		<li>	
+			<%= issue.submit %>
+		</li>
+	</ul>
+	<%= link_to "Issues", issues_path%>
 <% end %>
