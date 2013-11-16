@@ -1,17 +1,17 @@
-=form_for @org do |f|
-  =f.text_field :organization_name, placeholder: "Organization Name"
+=form_for @org, html:{role:"form"} do |f|
+  =f.text_field :organization_name, placeholder: "Organization Name", class:"form-control"
   %br
-  =f.text_field :ein, placeholder: "EIN"
+  =f.text_field :ein, placeholder: "EIN", class:"form-control"
   %br
-  =f.text_area :description, placeholder: "A description of your organization"
+  =f.text_area :description, placeholder: "A description of your organization", class:"form-control"
   %br
-  =f.text_field :phone, {placeholder: "Phone Number", type: "tel"}
+  =f.text_field :phone, {placeholder: "Phone Number", type: "tel", class:"form-control"}
   %br
-  =f.text_field :website_url, {placeholder: "The url of your website", type: "url"}
+  =f.text_field :website_url, {placeholder: "The url of your website", type: "url", class:"form-control"}
   %br
   %fieldset
-    =f.text_field :address, placeholder: "Address"
-    =f.text_field :city, placeholder: "City"
-    =f.text_field :state, placeholder: "State"
-    =f.text_field :zipcode, {placeholder: "Zip Code", type: "tel"}
-  =f.submit
+    =f.text_field :address, placeholder: "Address", class:"form-control"
+    =f.text_field :city, placeholder: "City", class:"form-control"
+    =f.text_field :state, placeholder: "State", class:"form-control"
+    =f.text_field :zipcode, {placeholder: "Zip Code", type: "tel", class:"form-control"}
+  =f.submit nil, class:"btn btn-default"

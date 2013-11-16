@@ -13,6 +13,7 @@ Bundler.require(:default, Rails.env)
 
 module Hoptoit
   class Application < Rails::Application
+
     config.generators do |g|
     g.test_framework :rspec,
         :fixtures => true,

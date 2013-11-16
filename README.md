@@ -11,4 +11,5 @@ Built On:
 
 
 *Created at General Assembly Los Angeles*
+
 *Web Development Immersive, Sep 2013*
