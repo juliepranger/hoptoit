@@ -5,12 +5,8 @@ class IssuesController < ApplicationController
 
 	def create
 		@issue = Issue.new(issue_params)
-		
-		if	@issue.save
-			redirect_to issues_path
-		else
-			render "new"
-		end	
+		@issue.save
+		redirect_to issues_path
 	end
 
 	def edit
@@ -26,7 +22,7 @@ class IssuesController < ApplicationController
 	
 	def update
 		@issue = Issue.find(params[:id])
-			if @issue.update_attributes(params[:id].permit(:title, :desc, :funding_goal, :pledged_total, :num_backers, :funding_date))
+			if @issue.update_attributes(issue_params)
   			redirect_to issues_url
   		else
   			render 'edit'
@@ -45,6 +41,13 @@ class IssuesController < ApplicationController
 	private
 	
 	def issue_params
-    	params.require(:issue).permit(:title, :desc, :funding_goal, :pledged_total, :num_backers, :funding_date)
+    	params.require(:issue).permit(
+    		:title, 
+    		:desc, 
+    		:funding_goal, 
+    		:pledged_total, 
+    		:num_backers,
+    		:funding_date
+    		)
   	end
 end
