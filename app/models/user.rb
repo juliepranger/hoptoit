@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :state, presence: true
   validates :zipcode, presence: true
 
-  has_many :issues
+  #has_many :issues
   has_and_belongs_to_many :organizations
 
 end
