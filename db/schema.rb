@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113224512) do
+ActiveRecord::Schema.define(version: 20131116004408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "charity_verifiers", force: true do |t|
+    t.integer  "ein"
+    t.string   "org_name"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "in_care_of_name"
+    t.integer  "subsection_code"
+    t.integer  "classification_code"
+    t.integer  "affiliation_code"
+    t.integer  "deductability_code"
+    t.integer  "foundation_code"
+    t.integer  "eo_status_code"
+    t.integer  "income_code"
+    t.integer  "tax_period"
+    t.string   "secondary_name"
+    t.string   "ntee_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "issues", force: true do |t|
     t.string   "title"

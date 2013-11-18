@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+json = ActiveSupport::JSON.decode(File.open('db/charities_seed.json'))
+
+json.each do |org|
+  CharityVerifier.create!(org)
+end

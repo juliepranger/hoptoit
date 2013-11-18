@@ -10,6 +10,11 @@ Hoptoit::Application.routes.draw do
   get 'issues/new' => 'issues#new'
   post 'issues' => 'issues#create'
 
+  #routes for charity verification json
+  get 'charityverifier/:name' => 'charity_verifiers#search'
+
+  #route for charity json test page
+  get 'testr' => 'pages#test'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,43 @@
+.row
+  .col-md-3
+  .col-md-6
+    %input{type:"text", placeholder:"search", id:"nameBox", class:"form-control"}
+  .col-md-3
+.row
+  .col-md-3
+  .col-md-6.charityReturns
+    %table{class:"table table-condensed table-hover"}
+
+
+:javascript
+  //$(document).on("page:load || page:change", searchNames)
+
+  // function searchNames(){
+    $("#nameBox").on("change", function(){
+      if ($("#nameBox").val().length >= 3) {
+        getJson();
+      }
+    });
+  // };
+  
+  function getJson(){
+    $.get("/charityverifier/"+ $("#nameBox").val(), fillText);
+  }
+
+  function fillText(data){
+
+    if ($(".charityReturns table").html().length > 0){
+      $(".charityReturns table").html("");
+    };
+
+    if(data.length != 0){
+      for(var i = 0; i < data.length; ++i){
+        $(".charityReturns table").append(
+          "<tr> <td>" + data[i].org_name + "</td> <td>" + data[i].city + ", " + data[i].state + "</td> </tr>"
+        );
+      }
+    }
+    else {
+      $(".charityReturns table").append("<tr><td>No results match that organization name.</td></tr>")
+    }
+  };

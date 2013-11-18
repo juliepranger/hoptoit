@@ -8,4 +8,6 @@ class Organization < ActiveRecord::Base
   validates :zipcode, presence: true, numericality:true
   validates :description, presence: true
   # validates :website_url, presence: true
+
+  has_one :charity_verifier
 end
