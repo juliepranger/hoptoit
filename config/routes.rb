@@ -4,11 +4,17 @@ Hoptoit::Application.routes.draw do
     resources :users
   # You can have the root of your site routed with "root"
   root 'pages#index'
+    resources :issues
+  # get 'issues' => 'issues#index'
 
-  get 'issues' => 'issues#index'
+  # get 'issues/new' => 'issues#new'
+  # post 'issues' => 'issues#create'
 
-  get 'issues/new' => 'issues#new'
-  post 'issues' => 'issues#create'
+  # get 'issues/:id/edit' => 'issues#edit'
+  # post 'issues/:id/edit' => 'issues#update'
+
+   #get 'issues/:id/destroy' => 'issues#destroy'
+
 
   #routes for charity verification json
   get 'charityverifier/:name' => 'charity_verifiers#search'

@@ -10,4 +10,5 @@ class Organization < ActiveRecord::Base
   # validates :website_url, presence: true
 
   has_one :charity_verifier
+  has_and_belongs_to_many :users
 end

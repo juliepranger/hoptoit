@@ -1,0 +1,29 @@
+ <%= form_for @issue do |f| %>
+      <p>
+        <%= f.label :title, class:"inputTextAlt" %>
+        <%= f.text_field :title, class:"inputReset" %>
+      </p>
+      <p>
+        <%= f.label :desc, class:"inputTextAlt"  %>
+        <%= f.text_field :desc, class:"inputReset" %>
+      </p>
+      <p>
+        <%= f.label :funding_goal, class:"inputTextAlt"  %>
+        <%= f.text_field :funding_goal, class:"inputReset" %>
+      </p>
+      <p>
+        <%= f.label :pledged_total, class:"inputTextAlt" %>
+        <%= f.text_field :pledged_total, class:"inputReset" %>
+      </p>
+      <p>
+        <%= f.label :num_backers, class:"inputTextAlt"  %>
+        <%= f.text_field :num_backers, class:"inputReset" %>
+      </p>
+      <p>
+        <%= f.label :funding_date, class:"inputTextAlt" %>
+        <%= f.text_field :funding_date, class:"inputReset" %>
+      </p>
+      <p>
+        <%= f.submit "Save", class:"btnmain"%>
+      </p>
+    <% end %>
