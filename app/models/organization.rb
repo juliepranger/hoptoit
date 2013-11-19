@@ -11,4 +11,5 @@ class Organization < ActiveRecord::Base
 
   has_one :charity_verifier
   has_and_belongs_to_many :users
+  has_and_belongs_to_many :issues
 end
