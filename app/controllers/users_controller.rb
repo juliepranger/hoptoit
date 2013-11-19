@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		 User.create(params[:user].permit([:first_name, :last_name, :email, :address, :city, :state, :zipcode]))
+		 User.create(params[:user].permit([:first_name, :last_name, :email, :address, :city, :state, :zipcode, :password, :password_confirmation]))
 	  redirect_to users_url
 	end
 

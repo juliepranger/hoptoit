@@ -3,6 +3,14 @@ class IssuesController < ApplicationController
 		@issue = Issue.new
 	end	
 
+	def create_issue_access
+		if current_user == :userid
+			redirect_to :action => 'show', :id =>@issue._id
+		else
+			flash[:notice] = "Uh oh, you're not signed in!"
+		end
+	end
+
 	def create
 		@issue = Issue.new(issue_params)
 		@issue.save

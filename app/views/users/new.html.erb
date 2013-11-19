@@ -2,28 +2,34 @@
 
 <h4>Please fill in every item below:</h4>
 
-<%= form_for @user do |u| %></br>
+<%= form_for @user do |user| %>
 
-	<%= u.label :first_name, "First Name" %>
-	<%= u.text_field :first_name %><br />
+	<%= user.label :first_name, "First Name" %>
+	<%= user.text_field :first_name %><br />
 
-	<%= u.label :last_name, "Last Name" %>
-	<%= u.text_field :last_name %><br />
+	<%= user.label :last_name, "Last Name" %>
+	<%= user.text_field :last_name %><br />
 
-	<%= u.label :email, "E-mail" %>
-	<%= u.text_field :email %><br />
+	<%= user.label :email, "E-mail" %>
+	<%= user.text_field :email %><br />
 
-	<%= u.label :address, "Address" %>
-	<%= u.text_field :address %><br />
+	<%= user.label :address, "Address" %>
+	<%= user.text_field :address %><br />
 
-	<%= u.label :city, "City" %>
-	<%= u.text_field :city %><br />
+	<%= user.label :city, "City" %>
+	<%= user.text_field :city %><br />
 
-	<%= u.label :state, "State" %>
-	<%= u.text_field :state %><br />
+	<%= user.label :state, "State" %>
+	<%= user.text_field :state %><br />
 
-	<%= u.label :zipcode, "Zipcode" %>
-	<%= u.text_field :zipcode %><br />
+	<%= user.label :zipcode, "Zipcode" %>
+	<%= user.text_field :zipcode %><br />
 
-	<%= u.submit "Let's Go!"%>
+	<%= user.label :password, "Password" %>
+	<%= user.password_field :password %><br />
+
+	<%= user.label :password_confirmation, "Confirm Password" %>
+	<%= user.password_field :password_confirmation %>
+
+	<%= user.submit "Let's Go!"%>
 	<% end %>

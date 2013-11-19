@@ -1,7 +1,7 @@
 Hoptoit::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-    resources :users
+  resources :users
   # You can have the root of your site routed with "root"
   root 'pages#index'
     resources :issues
@@ -15,6 +15,12 @@ Hoptoit::Application.routes.draw do
 
    #get 'issues/:id/destroy' => 'issues#destroy'
 
+
+  post 'authentications' => 'authentications#create' 
+  get 'authentications/new' => 'authentications#new'
+
+  #delete 'authentications/ => 'authentications#destroy'
+  get "/logout", to: "authentications#destroy", as: "logout"
 
 
   # Example of regular route:
