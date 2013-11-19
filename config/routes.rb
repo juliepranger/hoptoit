@@ -2,8 +2,9 @@ Hoptoit::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
     resources :users
+    devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
   # You can have the root of your site routed with "root"
-  root 'pages#index'
+  root to: 'pages#index'
 
   get 'issues' => 'issues#index'
 

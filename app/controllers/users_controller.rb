@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.create(params[:user].permit([:first_name, :last_name, :email, :address, :city, :state, :zipcode]))
+		@user = User.new(user_params)
 		 respond_to do |format|
 		 	if @user.save
 		 		UsersMailer.new_user_notification(@user).deliver
@@ -43,4 +43,9 @@ class UsersController < ApplicationController
 		User.find(params[:id]).destroy
 		redirect_to users_url
 	end
+
+	private
+		def user_params
+    	params.require(:user).permit(:first_name, :last_name, :email, :address, :city, :state, :zipcode)
+  	end
 end

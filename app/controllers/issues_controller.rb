@@ -5,12 +5,15 @@ class IssuesController < ApplicationController
 
 	def create
 		@issue = Issue.new(issue_params)
-		
-		if	@issue.save
-			redirect_to issues_path
+		respond_to do |format|
+		if @issue.save
+	 		UsersMailer.new_issue_notification(@issue).deliver
+	 		format.html { redirect_to issues_url, notice: 'Your Issue Has Been Created!' }
+	 		format.json { render action: 'show', status: :created, location: @issue }
 		else
 			render "new"
 		end	
+	end
 	end
 
 	def index 
@@ -20,5 +23,6 @@ class IssuesController < ApplicationController
 	private
 	def issue_params
     	params.require(:issue).permit(:title, :desc, :funding_goal, :pledged_total, :num_backers, :funding_date)
-  	end
+  end
+
 end

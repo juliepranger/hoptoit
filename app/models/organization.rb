@@ -8,4 +8,7 @@ class Organization < ActiveRecord::Base
   validates :zipcode, presence: true, numericality:true
   validates :description, presence: true
   # validates :website_url, presence: true
+
+  has_many :user_organizations
+	has_many :users, through: :organization_users, source: :organization
 end
