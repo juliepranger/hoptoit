@@ -30,12 +30,24 @@ class IssuesController < ApplicationController
   	end
 	def show
 	
-		@user = Issue.find(parmas[:id])	
+		@issue = Issue.find(parmas[:id])	
 	end
 
 	def destroy
 		Issue.find(params[:id]).destroy
 		redirect_to issues_url
+	end
+
+	def upvote
+		console.log(Issue.votes)
+		Issue.votes ++
+		console.log(Issue.votes)
+	end
+
+	def downvote
+		console.log(Issue.votes)
+		Issue.votes --
+		console.log(Issue.votes)
 	end
 
 	private
@@ -49,5 +61,6 @@ class IssuesController < ApplicationController
     		:num_backers,
     		:funding_date
     		)
+
   	end
 end
