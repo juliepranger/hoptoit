@@ -4,11 +4,11 @@ describe Organization do
   before { @org = Organization.new(
     :organization_name => "My Info",
     :ein => 1234567890,
-    :phone => 1234567890,
+    :phone => "1234567890",
     :address => "My Info",
     :city => "My Info",
     :state => "My Info",
-    :zipcode => 12345,
+    :zipcode => "12345",
     :description => "My Info",
     :website_url => "My Info"
     ) }
@@ -57,10 +57,8 @@ describe Organization do
       @org.website_url = nil
       expect(@org.save).to be_true
     end
-    it "verifies that ein, phone, and zipcode are numbers" do
+    it "verifies that einis a number" do
       @org.ein = "a string"
-      @org.phone = "a string"
-      @org.zipcode = "a string"
       expect(@org.save).to be_false
     end
   end

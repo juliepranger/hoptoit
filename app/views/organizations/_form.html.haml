@@ -1,16 +1,29 @@
+-if @org.errors.any?
+  #errors
+    %ul
+      =@org.errors.full_messages.each do |msg|
+        %li
+          =msg
+
 =form_for @org, html:{role:"form"} do |f|
+  =f.label :organization_name
   =f.text_field :organization_name, placeholder: "Organization Name", class:"form-control"
   %br
+  =f.label :ein, "EIN"
   =f.text_field :ein, placeholder: "EIN", class:"form-control"
   %br
+  =f.label :description
   =f.text_area :description, placeholder: "A description of your organization", class:"form-control"
   %br
+  =f.label :phone, "Phone Number"
   =f.text_field :phone, {placeholder: "Phone Number", type: "tel", class:"form-control"}
   %br
+  =f.label :website_url, "Website"
   =f.text_field :website_url, {placeholder: "The url of your website", type: "url", class:"form-control"}
   %br
   %fieldset
     =f.text_field :address, placeholder: "Address", class:"form-control"
+    =f.text_field :in_care_of_name, placeholder: "In Care of:", class:"form-control"
     =f.text_field :city, placeholder: "City", class:"form-control"
     =f.text_field :state, placeholder: "State", class:"form-control"
     =f.text_field :zipcode, {placeholder: "Zip Code", type: "tel", class:"form-control"}
