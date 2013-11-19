@@ -1,14 +1,17 @@
 source 'https://rubygems.org'
 
+#add dotenv so that secrets do not get exposed on Github
+gem 'dotenv-rails', :groups => [:development, :test]
+
 #use Passenger as the production server ('cause it's awesome) (EP)
 gem 'passenger'
 
-#I prefer to program in HAML... it save SO much time (EP)
+#I prefer to program in HAML... it saves SO much time (EP)
 gem 'haml'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
-gem 'haml'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 

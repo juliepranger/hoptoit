@@ -18,7 +18,6 @@ class CreateCharityVerifiers < ActiveRecord::Migration
       t.integer :tax_period
       t.string :secondary_name
       t.string :ntee_code
-      # t.resources :organizations
 
       t.timestamps
     end

@@ -19,16 +19,15 @@ class OrganizationsController < ApplicationController
     #page where new orgs will be created by user
     #get attributes of charity from the verifier
     @verified_charity = CharityVerifier.find(params[:id])
-    @org = Organization.new(
-      organization_name: @verified_charity.org_name,
-      ein: @verified_charity.ein,
-      address: @verified_charity.street_address,
-      city: @verified_charity.city,
-      state: @verified_charity.state,
-      zipcode: @verified_charity.zipcode,
-      in_care_of_name: @verified_charity.in_care_of_name
-
-      )
+    @org = Organization.new
+    @org.organization_name = @verified_charity.org_name
+    @org.ein = @verified_charity.ein
+    @org.address = @verified_charity.street_address
+    @org.city = @verified_charity.city
+    @org.state = @verified_charity.state
+    @org.zipcode = @verified_charity.zipcode
+    @org.in_care_of_name = @verified_charity.in_care_of_name
+    @org.charity_verifier_id = @verified_charity.id
   end
 
   def edit

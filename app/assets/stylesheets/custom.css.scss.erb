@@ -8,13 +8,14 @@ $yellow:rgba(235,227,170,1);
 
 
 body{
-  background: url(<%= asset_path 'pw_pattern5.png' %>);
-	/*background-color: $green;*/
+  /*background: url(<%= asset_path 'pw_pattern5.png' %>);*/
+	background-color: $yellow;
   color: $darkpurple;
 }
 
 .navbar{
-  background: $grey;
+  background: $green;
+  box-shadow: 0 5px $seafoam;
   opacity: 0.8;
   border:0;
   border-radius: 0;
@@ -27,3 +28,9 @@ body{
 a {
   color:$darkpurple;
 }
+
+.irsInfo {
+  background: white;
+  border: 2px solid $seafoam;
+  border-radius: 20px;
+} 

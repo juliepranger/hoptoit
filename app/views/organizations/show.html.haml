@@ -1,14 +1,30 @@
-%h1=@org.organization_name
 
-=@org.ein
-=@org.phone
-=@org.address
-=@org.city
-=@org.state
-=@org.zipcode
-=@org.description
-=@org.website_url
-%br
-=link_to "edit", edit_organization_path(@org)
-=link_to "delete", organization_path, method:'delete'
-=link_to "index", organizations_path
+.row
+  .col-md-1
+  .container.col-md-10
+    .row
+      .col-md-8
+        /Basic Profile info
+        %h1=@org.organization_name
+        %h4=@org.city+", "+@org.state
+        -if @org.website_url
+          =link_to @org.website_url, @org.website_url
+
+        
+      .col-md-4
+        /Organization logo / photo 
+
+    .row
+      .col-md-12
+        %h4 Description
+        %p=@org.description
+        %br
+        =link_to "edit", edit_organization_path(@org), class:"btn btn-default"
+        =link_to "delete", organization_path, method:'delete', class:"btn btn-default"
+        =link_to "index", organizations_path, class:"btn btn-default"
+    .row.irsInfo
+      .col-md-12
+        %h3 More Info about this organization
+        %h5 <i>Pulled from IRS records </i>
+      .col-md-6
+      .col-md-6
