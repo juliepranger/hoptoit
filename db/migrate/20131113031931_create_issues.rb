@@ -7,6 +7,7 @@ class CreateIssues < ActiveRecord::Migration
       t.integer :pledged_total
       t.integer :num_backers
       t.datetime :funding_date
+      t.integer :votes
 
       t.timestamps
     end

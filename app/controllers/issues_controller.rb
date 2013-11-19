@@ -13,6 +13,7 @@ class IssuesController < ApplicationController
 
 	def create
 		@issue = Issue.new(issue_params)
+		@issue.votes=0
 		@issue.save
 		redirect_to issues_path
 	end
@@ -38,11 +39,28 @@ class IssuesController < ApplicationController
   	end
 	def show
 	
-		@user = Issue.find(parmas[:id])	
+		@issue = Issue.find(parmas[:id])	
 	end
 
 	def destroy
 		Issue.find(params[:id]).destroy
+		redirect_to issues_url
+	end
+
+	def upvote
+		i = Issue.find(params[:id])
+		i.votes += 1
+		i.save
+		redirect_to issues_url
+	end
+
+	def downvote
+		i = Issue.find(params[:id])
+		y = i.votes
+		x = 1
+		z= y - x
+		i.votes = z
+		i.save
 		redirect_to issues_url
 	end
 
@@ -57,5 +75,6 @@ class IssuesController < ApplicationController
     		:num_backers,
     		:funding_date
     		)
+
   	end
 end

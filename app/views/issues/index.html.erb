@@ -14,6 +14,11 @@
 						<%=link_to "delete", issue_path(:id => i.id), method:'delete' %>
 					</li>
 					<li>
+						Votes: <%= i.votes %>
+						<%= link_to "UP VOTE", upvote_issue_path(:id => i.id), method:'post' %>
+						<%= link_to "DOWN VOTE", downvote_issue_path(:id => i.id), method:'post' %>
+					</li>
+					<li>
 						<%=link_to "edit", edit_issue_path(:id => i.id)%>
 					</li>
 					<li>
