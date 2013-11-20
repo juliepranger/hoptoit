@@ -1,10 +1,21 @@
 class IssuesController < ApplicationController
+	skip_before_action :require_login, only:[:show, :index]
+
 	def new
 		@issue = Issue.new
 	end	
 
+	def create_issue_access
+		if current_user == :userid
+			redirect_to :action => 'show', :id =>@issue._id
+		else
+			flash[:notice] = "Uh oh, you're not signed in!"
+		end
+	end
+
 	def create
 		@issue = Issue.new(issue_params)
+		@issue.votes=0
 		@issue.save
 		redirect_to issues_path
 	end
@@ -30,12 +41,33 @@ class IssuesController < ApplicationController
   	end
 	def show
 	
-		@user = Issue.find(parmas[:id])	
+		@issue = Issue.find(parmas[:id])	
 	end
 
 	def destroy
 		Issue.find(params[:id]).destroy
 		redirect_to issues_url
+	end
+
+	def upvote
+		i = Issue.find(params[:id])
+		i.votes += 1
+		i.save
+		render json: i.votes
+		 # respond_to do |format|
+		 # 	 	format.html {r}
+		 # 		format.js
+		 # end
+		
+		#redirect_to issues_url
+	end
+
+	def downvote
+		i = Issue.find(params[:id])
+		i.votes -= 1
+		i.save
+		render json: i.votes
+		#redirect_to issues_url
 	end
 
 	private
@@ -49,5 +81,6 @@ class IssuesController < ApplicationController
     		:num_backers,
     		:funding_date
     		)
+
   	end
 end

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	skip_before_action :require_login, only:[:new, :create]
 
 	def index
 		@users = User.all
@@ -13,8 +14,13 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		 User.create(params[:user].permit([:first_name, :last_name, :email, :address, :city, :state, :zipcode]))
-	  redirect_to users_url
+		@user=User.create(params[:user].permit([:first_name, :last_name, :email, :address, :city, :state, :zipcode, :password, :password_confirmation]))
+			if @user.save
+			 session[:user_id] = @user.id
+			 redirect_to user_url(@user)
+			else
+			 redirect_to root_path
+			end
 	end
 
 	def edit

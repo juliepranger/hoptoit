@@ -1,10 +1,13 @@
 Hoptoit::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-    resources :users
+  resources :users
   # You can have the root of your site routed with "root"
   root 'pages#index'
     resources :issues
+    post 'issues/:id/upvote' => 'issues#upvote', as: 'upvote_issue'
+    post 'issues/:id/downvote' => 'issues#downvote', as: 'downvote_issue'
+   # patch 'issues/:id/upvote' => 'issues#upvote', as: 'upvote_issue'
   # get 'issues' => 'issues#index'
 
   # get 'issues/new' => 'issues#new'
@@ -16,6 +19,7 @@ Hoptoit::Application.routes.draw do
    #get 'issues/:id/destroy' => 'issues#destroy'
 
 
+
   #routes for charity verification json
   get 'charityverifier/:name' => 'charity_verifiers#search'
 
@@ -24,6 +28,14 @@ Hoptoit::Application.routes.draw do
 
   #route for charity json test page
   # get 'testr' => 'pages#test'
+
+  post 'authentications' => 'authentications#create' 
+  get 'authentications/new' => 'authentications#new'
+
+  #delete 'authentications/ => 'authentications#destroy'
+  get "/logout", to: "authentications#destroy", as: "logout"
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

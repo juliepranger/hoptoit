@@ -1,0 +1,6 @@
+=form_for User.new,{url:"/authentications", method:"post", html:{role:"form", class:"form-inline"}} do |u|
+  .form-group
+    =u.text_field :email, placeholder:"Email", class:"form-control"
+  .form-group
+    =u.text_field :password, {class:"form-control",type:"password",placeholder:"Password"}
+  =u.submit "Log in", class:"btn btn-default"

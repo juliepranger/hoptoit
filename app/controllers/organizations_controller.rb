@@ -1,5 +1,9 @@
 class OrganizationsController < ApplicationController
+
   respond_to :html, :json
+
+  skip_before_action :require_login, only:[:show, :index]
+
 
   def index
     #list of organizations
@@ -9,6 +13,10 @@ class OrganizationsController < ApplicationController
   def show
     #info for single organization
     @org = Organization.find(params[:id])
+    #user can only see edit functions if a manager of that org
+    if @org.users.include?(current_user)
+      @org_manager = true
+    end
     #info from the charity verification
     @org_info = @org.charity_verifier
     #import info to define codes in charity+verifier
@@ -72,14 +80,18 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    #restrict access to this page so only org owners/admins can access
     @org = Organization.find(params[:id])
+    #restrict access to this page so only org owners/admins can access
+    unless @org.users.include?(current_user)
+      redirect_to organization_path(@org), notice: "you do not have permission to edit this page."
+    end
   end
 
   def create
     @org = Organization.new(org_params)
     @org.charity_verifier = CharityVerifier.find(params[:organization][:charity_verifier_id])
-    # @org.creator = current_user  ##we'll need this to work once we get users / auth up and running
+    @org.creator = current_user  ##we'll need this to work once we get users / auth up and running
+    @org.users << current_user
     if @org.save
       respond_with(@org)
     else

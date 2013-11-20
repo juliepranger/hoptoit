@@ -15,3 +15,21 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+function upvote(issueid){
+	$.post('issues/'+issueid+'/upvote',null,
+		function(databack){
+			// console.log(databack);
+
+		});
+}
+
+
+function downvote(issueid){
+	$.post('issues/'+issueid+'/downvote',null,
+		function(databack){
+			// console.log(databack);
+
+		});
+}

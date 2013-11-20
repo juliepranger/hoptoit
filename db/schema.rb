@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20131120180456) do
     t.integer  "pledged_total"
     t.integer  "num_backers"
     t.datetime "funding_date"
+    t.integer  "votes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
