@@ -32,7 +32,7 @@ class AuthenticationsController < ApplicationController
 
 	def destroy
 		session[:user_id] = nil
-		redirect_to authentications_new_path,
+		redirect_to root_path,
 		notice: "See you again soon!"
 	end
 

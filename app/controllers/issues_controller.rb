@@ -58,10 +58,7 @@ class IssuesController < ApplicationController
 
 	def downvote
 		i = Issue.find(params[:id])
-		y = i.votes
-		x = 1
-		z= y - x
-		i.votes = z
+		i.votes -= 1
 		i.save
 		redirect_to issues_url
 	end
