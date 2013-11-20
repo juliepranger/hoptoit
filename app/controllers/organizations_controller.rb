@@ -117,7 +117,8 @@ class OrganizationsController < ApplicationController
       :state,
       :zipcode,
       :description,
-      :website_url
+      :website_url,
+      :charity_verifier_id
     )
   end
 
