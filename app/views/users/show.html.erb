@@ -10,8 +10,9 @@ City:	<%= @user.city %></br>
 State:	<%= @user.state %></br>
 Zipcode:	<%= @user.zipcode %></br>
 </p>
-
+<% if @user == current_user %>
 <%= button_to "Add Organization", new_organization_url(@user),
 	controller: :organizations, action: :new, method: :get %>
 
 <%= button_to "Add Issue", new_issue_url(@user.id), controller: :issues, action: :create, method: :get %>
+<% end %>
