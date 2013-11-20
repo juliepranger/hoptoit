@@ -33,6 +33,18 @@
        end
     %></li>
     </ul>
+    <ul class="nav navbar-nav navbar-right">
+    <% if current_user %>
+
+      <li><%= link_to "Hi, " + current_user.first_name + " " + current_user.last_name, user_path(current_user.id) %></li>
+      <li><%= link_to "Logout", "/logout", class: "btn btn-default"%>
+    <% else %>
+      <%= render "authentications/form" %>
+    <% end %>
+
+
+
+    </ul>
   </div><!-- /.navbar-collapse -->
 
 </nav>

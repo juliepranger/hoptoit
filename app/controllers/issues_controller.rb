@@ -1,4 +1,6 @@
 class IssuesController < ApplicationController
+	skip_before_action :require_login, only:[:show, :index]
+
 	def new
 		@issue = Issue.new
 	end	

@@ -12,6 +12,10 @@ class AuthenticationsController < ApplicationController
 		end
 	end
 
+	def form
+		@user = User.new
+	end
+
 	def create
 		user = User.find_by(email: params[:user][:email])
 		if user

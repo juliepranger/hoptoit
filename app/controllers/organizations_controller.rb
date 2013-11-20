@@ -1,4 +1,5 @@
 class OrganizationsController < ApplicationController
+  skip_before_action :require_login, only:[:show, :index]
 
   def index
     #list of organizations
