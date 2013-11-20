@@ -42,5 +42,10 @@
         ="#{@org_info.foundation_code} -- "
         =@foundation_codes["#{@org_info.foundation_code}"]
         %br
-        %b This organization may also be known as:
-        =@org_info.secondary_name
+        -unless @org_info.secondary_name.empty?
+          %b This organization may also be known as:
+          =@org_info.secondary_name
+        -if @ntee
+          %b NTEE Code:
+          =@ntee.description
+        

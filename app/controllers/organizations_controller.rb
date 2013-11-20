@@ -49,6 +49,7 @@ class OrganizationsController < ApplicationController
       '23' => "509(a)(3) Type III functionally integrated",
       '24' => "509(a)(3) Type III not functionally integrated"
     }
+    @ntee = NteeCode.find_by(core_code:@org_info.ntee_code)
   end
 
   def search
@@ -67,7 +68,7 @@ class OrganizationsController < ApplicationController
     @org.state = @verified_charity.state
     @org.zipcode = @verified_charity.zipcode
     @org.in_care_of_name = @verified_charity.in_care_of_name
-    @org.charity_verifier = @verified_charity
+    @org.charity_verifier_id = @verified_charity.id
   end
 
   def edit
@@ -76,8 +77,8 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    #this is probably where verification should take place... need to figure this out.
     @org = Organization.new(org_params)
+    @org.charity_verifier = CharityVerifier.find(params[:organization][:charity_verifier_id])
     # @org.creator = current_user  ##we'll need this to work once we get users / auth up and running
     if @org.save
       respond_with(@org)
