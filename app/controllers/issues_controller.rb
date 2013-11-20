@@ -53,14 +53,21 @@ class IssuesController < ApplicationController
 		i = Issue.find(params[:id])
 		i.votes += 1
 		i.save
-		redirect_to issues_url
+		render json: i.votes
+		 # respond_to do |format|
+		 # 	 	format.html {r}
+		 # 		format.js
+		 # end
+		
+		#redirect_to issues_url
 	end
 
 	def downvote
 		i = Issue.find(params[:id])
 		i.votes -= 1
 		i.save
-		redirect_to issues_url
+		render json: i.votes
+		#redirect_to issues_url
 	end
 
 	private
