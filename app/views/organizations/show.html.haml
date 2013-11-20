@@ -24,7 +24,23 @@
         =link_to "index", organizations_path, class:"btn btn-default"
     .row.irsInfo
       .col-md-12
-        %h3 More Info about this organization
-        %h5 <i>Pulled from IRS records </i>
+        %h3 more info about this organization
+        /%h5 <i>Pulled from IRS records </i>
       .col-md-6
+        ="This organization is a 501(c)(#{@org_info.subsection_code})."
+        %b=@deductability_codes[@org_info.deductability_code]
+        %br
+        %b EIN:
+        =@org_info.ein
+        %br
+        %b Income:
+        $ 
+        =@income_codes[@org_info.income_code.to_i]
+        %i{class:"glyphicon glyphicon-info-sign", title:"Income Codes relate to the amount of income shown on the most recent Form 990 series return filed by the organization."}
       .col-md-6
+        %b Foundation Code:
+        ="#{@org_info.foundation_code} -- "
+        =@foundation_codes["#{@org_info.foundation_code}"]
+        %br
+        %b This organization may also be known as:
+        =@org_info.secondary_name
