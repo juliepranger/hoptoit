@@ -1,6 +1,14 @@
 %h1 Edit your organization
 .row
-  .col-md-3
   .col-md-6
     =render "form"
-  .col-md-3
+  .col-md-6
+    %h3 Users that can manage this organization
+    -@org.users.each do |u|
+      =u.first_name + " " + u.last_name + ", " + u.email
+    %form{class:"form form-inline"}
+      .form-group
+        %input{type:"text", placeholder:"email", class:"form-control" }
+      .form-group
+        %input{type:"submit", class:"btn btn-default"}
+      %p This isn't working yet.
