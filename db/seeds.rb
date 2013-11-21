@@ -26,3 +26,5 @@ doc.each do |line|
     description:line[4..255].strip
     )
 end
+
+User.create("first_name" => "Admin","last_name" => "Admin","email" => "admin@hoptoit.com","address" => "123 main st","city" => "Santa Monica","state" => "ca","zipcode" => "12345","hashed_password" => "$2a$10$yzhKqvwNENooV.uN/UPx6uU5/qbDAGRJF9YR9c3yBsvgNp.K2JIPq","salt" => "$2a$10$yzhKqvwNENooV.uN/UPx6u","admin" => "true")

@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 
 	def index
 		@users = User.all
+		unless current_user.admin == "true"
+		redirect_to root_path, notice: "Uh oh, you don't have permission to view that!"
+		end
 	end
 
 	def new
@@ -11,7 +14,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		unless current_user == @user
+		unless current_user == @user || current_user.admin
 			redirect_to users_path, notice: "You can only edit your own profile... jerk"
 			#CM- I So Smart
 		end

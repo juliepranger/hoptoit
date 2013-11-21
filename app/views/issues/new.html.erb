@@ -11,6 +11,9 @@
 		<li>	
 			Funding Goal:<%= issue.text_field :funding_goal, type: "number" %>
 		</li>	
+		<li>
+			<%= issue.text_field :organization_id %>
+		</li>
 		<li>	
 			Date to be funded by:<%= issue.text_field :funding_date, type: "datetime" %>
 		</li>	

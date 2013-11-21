@@ -3,6 +3,8 @@ class IssuesController < ApplicationController
 
 	def new
 		@issue = Issue.new
+		@org = Organization.find(params[:id])
+		@issue.organization_id = @org.id
 	end	
 
 	def create_issue_access
@@ -15,6 +17,7 @@ class IssuesController < ApplicationController
 
 	def create
 		@issue = Issue.new(issue_params)
+		@issue.creator = current_user
 		@issue.votes=0
 		@issue.save
 		redirect_to issues_path
