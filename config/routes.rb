@@ -6,6 +6,7 @@ Hoptoit::Application.routes.draw do
   root 'pages#index'
     resources :issues
     get 'issues/:id/vote' => 'issues#vote'
+    post 'issues/:id/edit' => 'issues#edit'
     #post 'issues/:id/vote' => 'issues#downvote', as: 'downvote_issue'
    # patch 'issues/:id/upvote' => 'issues#upvote', as: 'upvote_issue'
   # get 'issues' => 'issues#index'
