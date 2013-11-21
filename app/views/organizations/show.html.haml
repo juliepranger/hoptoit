@@ -26,24 +26,33 @@
     /%h5 <i>Pulled from IRS records </i>
   .col-md-6
     ="This organization is a 501(c)(#{@org_info.subsection_code})."
-    %b=@deductability_codes[@org_info.deductability_code]
+    %b=@codes.deductability[@org_info.deductability_code]
     %br
     %b EIN:
     =@org_info.ein
     %br
     %b Income:
     $ 
-    =@income_codes[@org_info.income_code.to_i]
+    =@codes.income[@org_info.income_code.to_i]
     %i{class:"glyphicon glyphicon-info-sign", title:"Income Codes relate to the amount of income shown on the most recent Form 990 series return filed by the organization."}
   .col-md-6
     %b Foundation Code:
     ="#{@org_info.foundation_code} -- "
-    =@foundation_codes["#{@org_info.foundation_code}"]
+    =@codes.foundation["#{@org_info.foundation_code}"]
     %br
     -unless @org_info.secondary_name.empty?
       %b This organization may also be known as:
       =@org_info.secondary_name
     -if @ntee
-      %b NTEE Code:
-      =@ntee.description
+      %b NTEE Classification 
+      %i{class:"glyphicon glyphicon-info-sign", title:"The National Taxonomy of Exempt Entities (NTEE) Code is a four digit code used to classify an exempt organization in terms of its primary exempt activity. The first digit (Common Code) is a modifier used to describe activities in support of nonprofit organizations.  The fourth digit further defines the classification of the organization and is not defined here."}
+      .nteeDiv
+        Code:
+        =@ntee.core_code
+        %br
+        Common Code: 
+        =@ntee.common_code + " -- " + @codes.ntee_common[@ntee.common_code]
+        %br
+        Description: 
+        =@ntee.description
     

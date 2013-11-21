@@ -19,44 +19,7 @@ class OrganizationsController < ApplicationController
     end
     #info from the charity verification
     @org_info = @org.charity_verifier
-    #import info to define codes in charity+verifier
-    @deductability_codes = {
-      1 => "Contributions are deductible.",
-      2 => "Contributions are not deductible.",
-      4 => "Contributions are deductible by treaty (foreign organizations)."
-    }
-    @income_codes = {
-      0 => "0",
-      1 => "1   to   9,999",
-      2 => "10,000   to   24,999",
-      3 => "25,000   to   99,999",
-      4 => "100,000   to   499,999",
-      5 => "500,000   to   999,999",
-      6 => "1,000,000   to   4,999,999",
-      7 => "5,000,000   to   9,999,999",
-      8 => "10,000,000   to   49,999,999",
-      9 => "50,000,000   to   greater"
-    }
-    @foundation_codes = {
-      '00' => "All organizations except 501(c)(3)",
-      '02' => "Private operating foundation exempt from paying excise taxes on investment income",
-      '03' => "Private operating foundation (other)",
-      '04' => "Private non-operating foundation",
-      '09' => "Suspense",
-      '10' => "Church 170(b)(1)(A)(i)",
-      '11' => "School 170(b)(1)(A)(ii)",
-      '12' => "Hospital or medical research organization 170(b)(1)(A)(iii)",
-      '13' => "Organization which operates for benefit of college or university and is owned or operated by a governmental unit 170(b)(1)(A)(iv)",
-      '14' => "Governmental unit 170(b)(1)(A)(v)",
-      '15' => "Organization which receives a substantial part of its support from a governmental unit or the general public   170(b)(1)(A)(vi)",
-      '16' => "Organization that normally receives no more than one-third of its support from gross investment income and unrelated business income and at the same time more than one-third of its support from contributions, fees, and gross receipts related to exempt purposes.  509(a)(2)",
-      '17' => "Organizations operated solely for the benefit of and in conjunction with organizations described in 10 through 16 above.  509(a)(3)",
-      '18' => "Organization organized and operated to test for public safety 509(a)(4)",
-      '21' => "509(a)(3) Type I",
-      '22' => "509(a)(3) Type II",
-      '23' => "509(a)(3) Type III functionally integrated",
-      '24' => "509(a)(3) Type III not functionally integrated"
-    }
+    @codes = CharityCodes.new
     @ntee = NteeCode.find_by(core_code:@org_info.ntee_code)
   end
 
