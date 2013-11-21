@@ -1,25 +1,25 @@
 <h1> New Issue </h1>
 
 <%= form_for @issue do |issue|%>
-	<ul>
-		<li>	
-			Title:<%= issue.text_field :title %>
-		</li>	
-		<li>
-			Description:<%= issue.text_area :desc %>
-		</li>	
-		<li>	
-			Funding Goal:<%= issue.text_field :funding_goal, type: "number" %>
-		</li>	
-		<li>
+	
+		<div class="form-group">
+			
+			Title:<%= issue.text_field :title, class:"form-control" %>
+			
+		
+			Description:<%= issue.text_area :desc, class:"form-control" %>
+		
+			
+			Funding Goal:<%= issue.text_field :funding_goal, type: "number", class:"form-control" %>
+		
+		<li class="hidden">
 			<%= issue.text_field :organization_id %>
 		</li>
-		<li>	
-			Date to be funded by:<%= issue.text_field :funding_date, type: "datetime" %>
-		</li>	
-		<li>	
-			<%= issue.submit %>
-		</li>
-	</ul>
+		
+			Date to be funded by:<%= issue.datetime_select :funding_date, class:"form-control"%>
+		
+			
+			<%= issue.submit nil, class: "btn btn-default" %>
+		</div>	
 	<%= link_to "Issues", issues_path%>
 <% end %>

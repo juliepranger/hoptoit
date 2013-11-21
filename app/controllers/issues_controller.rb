@@ -44,8 +44,7 @@ class IssuesController < ApplicationController
   			end
   	end
 	def show
-	
-		@issue = Issue.find(parmas[:id])	
+		@issue = Issue.find(params[:id])	
 	end
 
 	def destroy
@@ -53,9 +52,9 @@ class IssuesController < ApplicationController
 		redirect_to issues_url
 	end
 
-	def upvote
+	def vote
 		i = Issue.find(params[:id])
-		i.votes += 1
+		i.votes +=params[:amount].to_i 
 		i.save
 		render json: i.votes
 		 # respond_to do |format|
@@ -63,14 +62,6 @@ class IssuesController < ApplicationController
 		 # 		format.js
 		 # end
 		
-		#redirect_to issues_url
-	end
-
-	def downvote
-		i = Issue.find(params[:id])
-		i.votes -= 1
-		i.save
-		render json: i.votes
 		#redirect_to issues_url
 	end
 

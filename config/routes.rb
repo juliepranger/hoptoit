@@ -5,8 +5,8 @@ Hoptoit::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#index'
     resources :issues
-    post 'issues/:id/upvote' => 'issues#upvote', as: 'upvote_issue'
-    post 'issues/:id/downvote' => 'issues#downvote', as: 'downvote_issue'
+    get 'issues/:id/vote' => 'issues#vote'
+    #post 'issues/:id/vote' => 'issues#downvote', as: 'downvote_issue'
    # patch 'issues/:id/upvote' => 'issues#upvote', as: 'upvote_issue'
   # get 'issues' => 'issues#index'
 

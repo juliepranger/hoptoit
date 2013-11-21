@@ -1,6 +1,6 @@
 <h1> Issues </h1>
 
-<ul>
+<ul data-no-turbolink>
 
 		<% @issues.each do |i| %>
 			<li>
@@ -14,9 +14,9 @@
 						<%=link_to "delete", issue_path(:id => i.id), method:'delete' %>
 					</li>
 					<li>
-						<div class='vote'>Votes: <%= i.votes %></div>
-						<a href='#' onclick="upvote(<%= i.id %>);">UP VOTE</a>
-						<a href='#' onclick="downvote(<%= i.id %>);">DOWN VOTE</a>
+						<div class='vote'>Votes: <span id='vote<%=i.id%>'><%= i.votes %></span></div>
+						<a href='#' onclick="vote(<%= i.id %>, 1);" class="glyphicon glyphicon-thumbs-up"></a>
+						<a href='#' onclick="vote(<%= i.id %>, -1);" class="glyphicon glyphicon-thumbs-down"></a>
 					</li>
 					<li>
 						<%=link_to "edit", edit_issue_path(:id => i.id)%>
@@ -34,7 +34,7 @@
 						Number of Backers: <%= i.num_backers %>
 					</li>	
 					<li>
-						Funding Date: <%= i.funding_date %>
+						Funding Date: <%= i.funding_date.to_formatted_s(:long_ordinal) %>
 					</li>
 					<li>
 						Organization: <% i.organizations.each do |o| %>
@@ -42,8 +42,12 @@
 							<br />
 							<%end%>
 					</li>
+					<li>
+						<%= link_to "View Issue", issue_path(i.id) %>
+					</li>
 				</ul>	
 		<% end %>
+
 
 		<%= link_to "New Issue", new_issue_path%>
 

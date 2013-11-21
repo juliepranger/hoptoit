@@ -17,19 +17,13 @@
 //= require_tree .
 
 
-function upvote(issueid){
-	$.post('issues/'+issueid+'/upvote',null,
+function vote(issueid, x){
+	$.get('issues/'+issueid+'/vote?amount='+x,
 		function(databack){
 			// console.log(databack);
+				$('#vote'+issueid).html(databack);
 
 		});
 }
 
 
-function downvote(issueid){
-	$.post('issues/'+issueid+'/downvote',null,
-		function(databack){
-			// console.log(databack);
-
-		});
-}
