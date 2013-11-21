@@ -11,4 +11,10 @@ class UsersMailer < ActionMailer::Base
 
     mail to: @user.email, subject: "Thanks for joining Hop To It!"
   end
+
+  def password_reset(user)
+    @user = user
+    
+    mail to: @user.email, subject: "Reset Your Password"
+  end
 end
