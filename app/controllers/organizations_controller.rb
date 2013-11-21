@@ -78,6 +78,21 @@ class OrganizationsController < ApplicationController
     redirect_to organization_path(@org)
   end
 
+  def addUser
+    @org = Organization.find(params[:id])
+    if user = User.find_by(email:params[:email])
+      @org.users << user
+      @org.save
+      #we should send a notification email to all org managers here to let them know one has been added
+      flash[:notice] = "user added as organization manager"
+      respond_with(@org)
+    else
+      #Would like to create  a temp account & send an inviation / notification email in the future.
+      flash[:notice] = "Sorry, there are no users with that email on Hop To It"
+      respond_with(@org) 
+    end
+  end
+
   private
 
   def org_params

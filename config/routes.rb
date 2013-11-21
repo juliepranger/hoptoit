@@ -87,4 +87,5 @@ Hoptoit::Application.routes.draw do
   #   end
 
   resources :organizations
+  post "organizations/:id/addUser" => "organizations#addUser", as: "add_org_usr"
 end
