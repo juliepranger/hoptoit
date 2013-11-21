@@ -4,33 +4,38 @@
 		<h1><%= @issue.title %></h1>
 	</div>
 	<div class="col-md-4">
-		<a class="pintrest"href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&description=Next%20stop%3A%20Pinterest" data-pin-do="buttonPin" data-pin-config="above" data-pin-color="red" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png" /></a>
+		<a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&description=Next%20stop%3A%20Pinterest" data-pin-do="buttonPin" data-pin-config="none" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_28.png" /></a>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12">
 		<h3><%= @issue.desc %></h3>
+		<h4>Organization: <% @issue.organizations.each do |o| %>
+							<%= o.organization_name %>
+							<br /></h4>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-8">
-		<h4>Funding Goal: <%= number_to_currency(@issue.funding_goal) %></h4>
-		<h4>Pledged Total: <%= @issue.pledged_total %></h4>	
+		<h4>Funding Goal: <%= number_to_currency(@issue.funding_goal, precision: 0) %></h4>
+		<h4>Pledged Total: <%= number_to_currency(@issue.pledged_total, precision: 0) %></h4>	
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-8">
 		<h5>Votes <p class="glyphicon glyphicon-thumbs-up"></p> :<%= @issue.votes %></h5>
 		<h5>Backers: <%= @issue.num_backers %></h5>	
+		
+							<%end%>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-8">
-		<%=	form_for @issue do |f| %>
-        	<%= f.label :donation%>
-        	<%= f.text_field :donation%>
-   			<%= f.submit "Save", class:"btnmain"%>
-		<% end %>
+		<%= form_tag(donate_issue_path, method: "post") do %>
+ 			<%= label_tag(:q, "Donate:") %>
+  			<%= text_field_tag(:q) %>
+  			<%= submit_tag("Donate") %>
+			<% end %>
  	</div>
 </div>
 

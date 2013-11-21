@@ -7,6 +7,7 @@ Hoptoit::Application.routes.draw do
     resources :issues
     get 'issues/:id/vote' => 'issues#vote'
     post 'issues/:id/edit' => 'issues#edit'
+    post 'issues/:id/donate' => 'issues#donate', as:'donate_issue' 
     #post 'issues/:id/vote' => 'issues#downvote', as: 'downvote_issue'
    # patch 'issues/:id/upvote' => 'issues#upvote', as: 'upvote_issue'
   # get 'issues' => 'issues#index'
