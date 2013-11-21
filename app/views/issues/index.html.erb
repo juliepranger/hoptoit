@@ -36,6 +36,12 @@
 					<li>
 						Funding Date: <%= i.funding_date %>
 					</li>
+					<li>
+						Organization: <% i.organizations.each do |o| %>
+							<%= o.organization_name %>
+							<br />
+							<%end%>
+					</li>
 				</ul>	
 		<% end %>
 

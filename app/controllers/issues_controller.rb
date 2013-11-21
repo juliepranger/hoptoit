@@ -19,6 +19,7 @@ class IssuesController < ApplicationController
 		@issue = Issue.new(issue_params)
 		@issue.creator = current_user
 		@issue.votes=0
+		@issue.organizations << Organization.find(params[:issue][:organization_id])
 		@issue.save
 		redirect_to issues_path
 	end
