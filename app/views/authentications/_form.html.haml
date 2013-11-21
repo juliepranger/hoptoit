@@ -3,4 +3,7 @@
     =u.text_field :email, placeholder:"Email", class:"form-control"
   .form-group
     =u.text_field :password, {class:"form-control",type:"password",placeholder:"Password"}
-  =u.submit "Log in", class:"btn btn-default"
+  .form-group
+    =u.submit "Log in", class:"btn btn-default"
+  .form-group
+    =link_to "forgot password?", new_password_reset_path

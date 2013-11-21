@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 	def edit
 		@user = User.find(params[:id])
 		unless current_user == @user
-			redirect_to users_path, notice: "You can only edit your own profile... jerk"
+			redirect_to users_path, notice: "You can only edit your own profile."
 			#CM- I So Smart
 		end
 	end

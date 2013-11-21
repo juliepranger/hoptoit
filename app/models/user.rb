@@ -26,10 +26,10 @@ class User < ActiveRecord::Base
     BCrypt::Engine.hash_secret(password, self.salt)
   end
 
-    def generate_token(column)
-      begin
-        self[column] = SecureRandom.urlsafe_base64
-      end while User.exists?(column => self[column])
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
   end
 
   def send_password_reset
