@@ -51,6 +51,7 @@ end
 group :development do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
+  gem 'letter_opener'
 end
 
 group :test do

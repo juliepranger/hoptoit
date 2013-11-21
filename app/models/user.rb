@@ -6,15 +6,13 @@ class User < ActiveRecord::Base
 
 	before_save :hash_password
 
-	validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :email, presence: true
-  validates :address, presence: true
-  validates :city, presence: true
-  validates :state, presence: true
-  validates :zipcode, presence: true
-  validates :email, uniqueness: { case_sensitive: false }
-  validates :password, confirmation: true
+	validates_presence_of :first_name
+  validates_presence_of :last_name
+  validates_presence_of :email, uniqueness: { case_sensitive: false }
+  validates_presence_of :address
+  validates_presence_of :city
+  validates_presence_of :state
+  validates_presence_of :zipcode
 
   #has_many :issues
   has_and_belongs_to_many :organizations
@@ -26,6 +24,19 @@ class User < ActiveRecord::Base
   def authenticate(password)
     self.hashed_password ==
     BCrypt::Engine.hash_secret(password, self.salt)
+  end
+
+    def generate_token(column)
+      begin
+        self[column] = SecureRandom.urlsafe_base64
+      end while User.exists?(column => self[column])
+  end
+
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UsersMailer.password_reset(self).deliver
   end
 
   private

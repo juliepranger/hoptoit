@@ -21,13 +21,19 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user=User.create(params[:user].permit([:first_name, :last_name, :email, :address, :city, :state, :zipcode, :password, :password_confirmation]))
-			if @user.save
-			 session[:user_id] = @user.id
-			 redirect_to user_url(@user)
-			else
-			 redirect_to root_path
-			end
+		@user = User.create(params[:user].permit([:first_name, :last_name, :email, :address, :city, :state, :zipcode, :password, :password_confirmation]))
+	  redirect_to users_url
+		
+		respond_to do |format|
+		 	if @user.save
+		 		UsersMailer.new_user_notification(@user).deliver
+		 		format.html { redirect_to users_url, notice: 'Welcome to Hop To It!' }
+		 		format.json { render action: 'show', status: :created, location: @user }
+		 	else
+		 		format.html { render action: 'new' }
+		 		format.json { render json: @user.errors, status: :unprocessable_entity }
+		 	end
+		end
 	end
 
 	def edit

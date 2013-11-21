@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131121030501) do
+ActiveRecord::Schema.define(version: 20131121202550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20131121030501) do
     t.integer  "pledged_total"
     t.integer  "num_backers"
     t.datetime "funding_date"
-    t.integer  "votes"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "creator_id"
@@ -70,17 +69,15 @@ ActiveRecord::Schema.define(version: 20131121030501) do
   create_table "organizations", force: true do |t|
     t.string   "organization_name"
     t.integer  "ein"
-    t.string   "phone"
+    t.integer  "phone"
     t.string   "address"
     t.string   "city"
     t.string   "state"
-    t.string   "zipcode"
-    t.text     "description"
+    t.integer  "zipcode"
+    t.string   "description"
     t.string   "website_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "in_care_of_name"
-    t.integer  "charity_verifier_id"
     t.integer  "creator_id"
     t.string   "creator_type"
   end
@@ -102,6 +99,10 @@ ActiveRecord::Schema.define(version: 20131121030501) do
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
+    t.string   "password_digest"
+    t.string   "auth_token"
     t.string   "admin"
   end
 

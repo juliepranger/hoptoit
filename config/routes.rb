@@ -1,13 +1,18 @@
 Hoptoit::Application.routes.draw do
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :users
   # You can have the root of your site routed with "root"
   root 'pages#index'
-    resources :issues
-    get 'issues/:id/vote' => 'issues#vote'
+  
+  get 'issues/:id/vote' => 'issues#vote'
     #post 'issues/:id/vote' => 'issues#downvote', as: 'downvote_issue'
    # patch 'issues/:id/upvote' => 'issues#upvote', as: 'upvote_issue'
+
+  resources :issues
+  resources :password_resets
+
   # get 'issues' => 'issues#index'
 
   # get 'issues/new' => 'issues#new'
