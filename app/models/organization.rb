@@ -13,4 +13,5 @@ class Organization < ActiveRecord::Base
   belongs_to :creator, polymorphic: true
   has_and_belongs_to_many :users
   has_and_belongs_to_many :issues
+  has_attached_file :logo, :styles => {:medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 end

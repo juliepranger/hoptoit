@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131121030501) do
+ActiveRecord::Schema.define(version: 20131121184215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20131121030501) do
     t.integer  "pledged_total"
     t.integer  "num_backers"
     t.datetime "funding_date"
-    t.integer  "votes"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "creator_id"
@@ -83,6 +82,10 @@ ActiveRecord::Schema.define(version: 20131121030501) do
     t.integer  "charity_verifier_id"
     t.integer  "creator_id"
     t.string   "creator_type"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "organizations_users", force: true do |t|

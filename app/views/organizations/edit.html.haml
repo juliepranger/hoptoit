@@ -12,4 +12,9 @@
       .form-group
         %input{type:"submit", class:"btn btn-default"}
       %p This isn't working yet.
+    %h3 Upload a logo for your organization.
+    =form_for @org, {class: "form form-inline"} do |o|
+      =o.file_field :logo
+      =o.submit "upload", class:"btn btn-default"
+    =link_to "Delete this Organization", organization_path, method:'delete', class:"btn btn-danger"
       

@@ -93,7 +93,8 @@ class OrganizationsController < ApplicationController
       :zipcode,
       :description,
       :website_url,
-      :charity_verifier_id
+      :charity_verifier_id,
+      :logo
     )
   end
 
