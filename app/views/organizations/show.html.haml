@@ -18,9 +18,10 @@
     %br
     -if @org_manager
       =link_to "edit", edit_organization_path(@org), class:"btn btn-default"
-      =link_to "delete", organization_path, method:'delete', class:"btn btn-default"
+      =link_to "delete", organization_path, method:'delete', class:"btn btn-default",:confirm =>" ARE YOU SURE YOU WANT TO DELETE THIS ORGANIZATION????"
+      /= HAML SUCKS!!!!!!! NO ME GUSTA...... I WANT A BEER 
       /=link_to "index", organizations_path, class:"btn btn-default"
-      =link_to "new", "/issues/new?id=#{@org.id}", class:"btn btn-default"
+      =link_to "new issue", "/issues/new?id=#{@org.id}", class:"btn btn-default"
 .row.irsInfo
   .col-md-12
     %h3 more info about this organization

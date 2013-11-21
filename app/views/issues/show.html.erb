@@ -24,6 +24,15 @@
 		<h5>Backers: <%= @issue.num_backers %></h5>	
 	</div>
 </div>
+<div class="row">
+	<div class="col-md-8">
+		<%=	form_for @issue do |f| %>
+        	<%= f.label :donation%>
+        	<%= f.text_field :donation%>
+   			<%= f.submit "Save", class:"btnmain"%>
+		<% end %>
+ 	</div>
+</div>
 
 
 

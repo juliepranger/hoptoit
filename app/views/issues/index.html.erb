@@ -40,12 +40,12 @@
 					</li>
 					<li>
 						<% if current_user %>
-      					<%=link_to "Delete", issue_path(:id => i.id), method:'delete' %>
+      					<%=link_to "Delete", issue_path(:id => i.id), method:'delete'%>
 				      <% end %>	
 					</li>
 					<li>
 						<% if current_user %>
-						<%=link_to "Edit", edit_issue_path(:id => i.id), method:'edit'%>
+						<%=link_to "Edit", edit_issue_path(:id => i.id), method:'edit' %>
 						<% end %>
 					</li>
 				</ul>	
