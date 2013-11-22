@@ -10,25 +10,18 @@
 					<li>
 						Description: <%= i.desc %>
 					</li>
-					<li>
-						<%=link_to "delete", issue_path(:id => i.id), method:'delete' %>
-					</li>
+					
+					
 					<li>
 						<div class='vote'>Votes: <span id='vote<%=i.id%>'><%= i.votes %></span></div>
 						<a href='#' onclick="vote(<%= i.id %>, 1);" class="glyphicon glyphicon-thumbs-up"></a>
 						<a href='#' onclick="vote(<%= i.id %>, -1);" class="glyphicon glyphicon-thumbs-down"></a>
-					</li>
-					<li>
-						<%=link_to "edit", edit_issue_path(:id => i.id)%>
-					</li>
-					<li>
-						ID <%=i.id %>
 					</li>	
 					<li>
-						Funding Goal:<%= i.funding_goal %>
+						Funding Goal: <%= number_to_currency(i.funding_goal, precision: 0) %>
 					</li>	
 					<li>
-						Pleged Total: <%= i.pledged_total %>
+						Pledged Total: <%= number_to_currency(i.pledged_total, precision: 0) %>
 					</li>	
 					<li>
 						Number of Backers: <%= i.num_backers %>
@@ -45,11 +38,21 @@
 					<li>
 						<%= link_to "View Issue", issue_path(i.id) %>
 					</li>
+					<li>
+						<% if current_user %>
+      					<%=link_to "Delete", issue_path(:id => i.id), method:'delete',:confirm =>" ARE YOU SURE YOU WANT TO DELETE THIS ISSUE????"%>
+				      <% end %>	
+					</li>
+					<li>
+						<% if current_user %>
+						<%=link_to "Edit", edit_issue_path(:id => i.id), method:'edit' %>
+						<% end %>
+					</li>
 				</ul>	
 		<% end %>
 
 
-		<%= link_to "New Issue", new_issue_path%>
+		
 
 
 <ul>

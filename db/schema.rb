@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20131121202550) do
+=======
+ActiveRecord::Schema.define(version: 20131121205336) do
+>>>>>>> donate_2
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +55,7 @@ ActiveRecord::Schema.define(version: 20131121202550) do
     t.integer  "creator_id"
     t.string   "creator_type"
     t.integer  "organization_id"
+    t.integer  "donation"
   end
 
   create_table "issues_organizations", force: true do |t|
