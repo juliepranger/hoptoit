@@ -14,18 +14,18 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-21T17:15:27-08:00">2013-11-21T17:15:27-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-21T17:24:23-08:00">2013-11-21T17:24:23-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">80.39%</span></span>
+    (<span class="covered_percent"><span class="yellow">82.35%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.9
+       <span class="green">
+         1.04
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>23</b> files in total.
     <b>153</b> relevant lines. 
-    <span class="green"><b>123</b> lines covered</span> and
-    <span class="red"><b>30</b> lines missed </span>
+    <span class="green"><b>126</b> lines covered</span> and
+    <span class="red"><b>27</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -57,17 +57,17 @@
         <td>14</td>
         <td>12</td>
         <td>2</td>
-        <td>1.0</td>
+        <td>1.2</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#ac2d5fd7f1ef3641f3fd32f4c8abdc1ac041d098" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-        <td class="red strong">41.94 %</td>
+        <td class="red strong">51.61 %</td>
         <td>57</td>
         <td>31</td>
-        <td>13</td>
-        <td>18</td>
-        <td>0.5</td>
+        <td>16</td>
+        <td>15</td>
+        <td>0.8</td>
       </tr>
       
       <tr>
@@ -107,7 +107,7 @@
         <td>30</td>
         <td>20</td>
         <td>10</td>
-        <td>1.0</td>
+        <td>1.3</td>
       </tr>
       
       <tr>
@@ -448,8 +448,8 @@
           <code class="ruby">  def require_login</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="24">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="6" data-linenumber="24">
+          <span class="hits">6</span>
           
           <code class="ruby">    unless current_user</code>
         </li>
@@ -485,11 +485,11 @@
         <div class="source_table" id="ac2d5fd7f1ef3641f3fd32f4c8abdc1ac041d098">
   <div class="header">
     <h3>app/controllers/users_controller.rb</h3>
-    <h4><span class="red">41.94 %</span> covered</h4>
+    <h4><span class="red">51.61 %</span> covered</h4>
     <div>
       <b>31</b> relevant lines. 
-      <span class="green"><b>13</b> lines covered</span> and
-      <span class="red"><b>18</b> lines missed.</span>
+      <span class="green"><b>16</b> lines covered</span> and
+      <span class="red"><b>15</b> lines missed.</span>
     </div>
   </div>
   
@@ -586,20 +586,20 @@
           <code class="ruby">	def show</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="16">
-          
+        <li class="covered" data-hits="3" data-linenumber="16">
+          <span class="hits">3</span>
           
           <code class="ruby">		@user = User.find(params[:id])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
-          
+        <li class="covered" data-hits="3" data-linenumber="17">
+          <span class="hits">3</span>
           
           <code class="ruby">		unless current_user == @user || current_user.admin</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="18">
-          
+        <li class="covered" data-hits="2" data-linenumber="18">
+          <span class="hits">2</span>
           
           <code class="ruby">			redirect_to users_path, notice: &quot;You can only edit your own profile.&quot;</code>
         </li>
@@ -1210,8 +1210,8 @@
           <code class="ruby">  def hash_password</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="45">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="19" data-linenumber="45">
+          <span class="hits">19</span>
           
           <code class="ruby">    if password.present?</code>
         </li>

@@ -18,7 +18,6 @@ describe UsersController do
 		ApplicationController.any_instance.stub(:current_user).and_return(@adminuser)
 			get :index
 			expect(response).to render_template("index")
-
 		end
 
 		it "assigns user to @users" do
@@ -29,10 +28,12 @@ describe UsersController do
 	end
 
 	describe "GET #new" do
+
 		it "creates a new form template" do
 			get :new
 			expect(response).to render_template("new")
 		end
+
 		it "creates a User.new" do
 			user = User.new
 			get :new
@@ -40,15 +41,25 @@ describe UsersController do
 		end
 	end
 
-	# describe "GET #show" do
-	# 	it "assigns the requested user to @user" do
-	# 		testuser = FactoryGirl.create(:user)
-	# 		get :show, id: testuser
-	# 		expect(assigns(:user)).to eq(testuser)
-	# 	end
-	# 	it "renders the :show template" do
-	# 		get :show, id: FactoryGirl.create(:user)
-	# 		expect(response).to render_template("show")
-	# 	end
-	# end
+	describe "GET #show" do
+
+		it "assigns the requested user to @user" do
+		ApplicationController.any_instance.stub(:current_user).and_return(@testuser)
+			testuser = FactoryGirl.create(:user)
+			get :show, id: testuser
+			expect(assigns(:user)).to eq(testuser)
+		end
+
+		it "if you're the admin, it renders the show" do
+		ApplicationController.any_instance.stub(:current_user).and_return(@adminuser)
+			get :show, id: FactoryGirl.create(:user)
+			expect(response).to render_template("show")
+		end
+
+		it "if you're not the admin, it redirects to the users_path" do
+		ApplicationController.any_instance.stub(:current_user).and_return(@testuser)
+			get :show, id: FactoryGirl.create(:user)
+			expect(response).to redirect_to(users_path)
+		end
+	end
 end
