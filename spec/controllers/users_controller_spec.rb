@@ -28,17 +28,17 @@ describe UsersController do
 		end
 	end
 
-	# describe "GET #new" do
-	# 	it "creates a new form template" do
-	# 		get :new
-	# 		expect(response).to render_template("new")
-	# 	end
-	# 	it "creates a User.new" do
-	# 		user = User.new
-	# 		get :new
-	# 		expect(assigns(:user == user))
-	# 	end
-	# end
+	describe "GET #new" do
+		it "creates a new form template" do
+			get :new
+			expect(response).to render_template("new")
+		end
+		it "creates a User.new" do
+			user = User.new
+			get :new
+			expect(assigns(:user == user))
+		end
+	end
 
 	# describe "GET #show" do
 	# 	it "assigns the requested user to @user" do
