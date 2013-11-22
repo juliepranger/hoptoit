@@ -41,4 +41,5 @@ Hoptoit::Application.routes.draw do
   get "/logout", to: "authentications#destroy", as: "logout"
 
   resources :organizations
+  post "organizations/:id/addUser" => "organizations#addUser", as: "add_org_usr"
 end

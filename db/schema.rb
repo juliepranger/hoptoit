@@ -69,17 +69,23 @@ ActiveRecord::Schema.define(version: 20131121202550) do
   create_table "organizations", force: true do |t|
     t.string   "organization_name"
     t.integer  "ein"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "address"
     t.string   "city"
     t.string   "state"
-    t.integer  "zipcode"
-    t.string   "description"
+    t.string   "zipcode"
+    t.text     "description"
     t.string   "website_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "in_care_of_name"
+    t.integer  "charity_verifier_id"
     t.integer  "creator_id"
     t.string   "creator_type"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "organizations_users", force: true do |t|
@@ -99,11 +105,10 @@ ActiveRecord::Schema.define(version: 20131121202550) do
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "admin"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.string   "password_digest"
     t.string   "auth_token"
-    t.string   "admin"
   end
 
 end

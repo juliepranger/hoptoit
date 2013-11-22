@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#add paperclip
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
 
 #add dotenv so that secrets do not get exposed on Github
 gem 'dotenv-rails', :groups => [:development, :test]

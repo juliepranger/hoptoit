@@ -1,15 +1,17 @@
 
 .row
+  .col-md-12
+    %h1=@org.organization_name
   .col-md-8
     /Basic Profile info
-    %h1=@org.organization_name
     %h4=@org.city+", "+@org.state
     -if @org.website_url
       =link_to @org.website_url, @org.website_url
 
     
-  .col-md-4
+  .col-md-4.logoDiv
     /Organization logo / photo 
+    =image_tag @org.logo.url, class:"img-responsive img-rounded"
 
 .row
   .col-md-12
@@ -17,10 +19,11 @@
     %p=@org.description
     %br
     -if @org_manager
-      =link_to "edit", edit_organization_path(@org), class:"btn btn-default"
-      =link_to "delete", organization_path, method:'delete', class:"btn btn-default"
+      =link_to "Edit this Organization", edit_organization_path(@org), class:"btn btn-default"
+
       /=link_to "index", organizations_path, class:"btn btn-default"
-      =link_to "new", "/issues/new?id=#{@org.id}"
+      =link_to "Create An Issue", "/issues/new?id=#{@org.id}", class:"btn btn-primary"
+    %br
 .row.irsInfo
   .col-md-12
     %h3 more info about this organization
