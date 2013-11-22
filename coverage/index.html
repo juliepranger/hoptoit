@@ -14,27 +14,27 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-21T17:24:23-08:00">2013-11-21T17:24:23-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-22T10:42:46-08:00">2013-11-22T10:42:46-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">82.35%</span></span>
+    (<span class="covered_percent"><span class="yellow">86.71%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="green">
-         1.04
+       <span class="red">
+         0.93
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>23</b> files in total.
-    <b>153</b> relevant lines. 
-    <span class="green"><b>126</b> lines covered</span> and
-    <span class="red"><b>27</b> lines missed </span>
+    <b>143</b> relevant lines. 
+    <span class="green"><b>124</b> lines covered</span> and
+    <span class="red"><b>19</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,22 +52,22 @@
       
       <tr>
         <td class="strong"><a href="#eb74ec7dfab79485d8f8b225c50e4692b020d210" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
-        <td class="yellow strong">85.71 %</td>
+        <td class="red strong">78.57 %</td>
         <td>28</td>
         <td>14</td>
-        <td>12</td>
-        <td>2</td>
-        <td>1.2</td>
+        <td>11</td>
+        <td>3</td>
+        <td>0.9</td>
       </tr>
       
       <tr>
-        <td class="strong"><a href="#ac2d5fd7f1ef3641f3fd32f4c8abdc1ac041d098" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-        <td class="red strong">51.61 %</td>
-        <td>57</td>
-        <td>31</td>
-        <td>16</td>
-        <td>15</td>
-        <td>0.8</td>
+        <td class="strong"><a href="#1ebf93ae4d0150fd9bff331dabee507dc0b1d7f3" class="src_link" title="app/controllers/authentications_controller.rb">app/controllers/authentications_controller.rb</a></td>
+        <td class="red strong">57.14 %</td>
+        <td>39</td>
+        <td>21</td>
+        <td>12</td>
+        <td>9</td>
+        <td>0.6</td>
       </tr>
       
       <tr>
@@ -102,12 +102,12 @@
       
       <tr>
         <td class="strong"><a href="#fa5611b0125eb4f76950a3252761bc6de48b179f" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
-        <td class="red strong">66.67 %</td>
+        <td class="red strong">76.67 %</td>
         <td>53</td>
         <td>30</td>
-        <td>20</td>
-        <td>10</td>
-        <td>1.3</td>
+        <td>23</td>
+        <td>7</td>
+        <td>1.0</td>
       </tr>
       
       <tr>
@@ -299,11 +299,11 @@
         <div class="source_table" id="eb74ec7dfab79485d8f8b225c50e4692b020d210">
   <div class="header">
     <h3>app/controllers/application_controller.rb</h3>
-    <h4><span class="yellow">85.71 %</span> covered</h4>
+    <h4><span class="red">78.57 %</span> covered</h4>
     <div>
       <b>14</b> relevant lines. 
-      <span class="green"><b>12</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <span class="green"><b>11</b> lines covered</span> and
+      <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
   
@@ -358,8 +358,8 @@
           <code class="ruby">  def current_user</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="9">
+          <span class="hits">2</span>
           
           <code class="ruby">  	if session[:user_id]</code>
         </li>
@@ -394,8 +394,8 @@
           <code class="ruby">  def authenticate_user</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="15">
-          
+        <li class="covered" data-hits="2" data-linenumber="15">
+          <span class="hits">2</span>
           
           <code class="ruby">		redirect_to authentications_url unless current_user</code>
         </li>
@@ -448,14 +448,14 @@
           <code class="ruby">  def require_login</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="24">
-          <span class="hits">6</span>
+        <li class="missed" data-hits="0" data-linenumber="24">
+          
           
           <code class="ruby">    unless current_user</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
           
           <code class="ruby">      redirect_to root_path</code>
         </li>
@@ -482,14 +482,14 @@
   </pre>
 </div>
       
-        <div class="source_table" id="ac2d5fd7f1ef3641f3fd32f4c8abdc1ac041d098">
+        <div class="source_table" id="1ebf93ae4d0150fd9bff331dabee507dc0b1d7f3">
   <div class="header">
-    <h3>app/controllers/users_controller.rb</h3>
-    <h4><span class="red">51.61 %</span> covered</h4>
+    <h3>app/controllers/authentications_controller.rb</h3>
+    <h4><span class="red">57.14 %</span> covered</h4>
     <div>
-      <b>31</b> relevant lines. 
-      <span class="green"><b>16</b> lines covered</span> and
-      <span class="red"><b>15</b> lines missed.</span>
+      <b>21</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
+      <span class="red"><b>9</b> lines missed.</span>
     </div>
   </div>
   
@@ -499,73 +499,73 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class UsersController &lt; ApplicationController</code>
+          <code class="ruby">class AuthenticationsController &lt; ApplicationController</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">	skip_before_action :require_login, only:[:new, :create]</code>
+          <code class="ruby">	before_action :authenticate_user, only: [:destroy]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="3">
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	skip_before_filter :require_login</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
-          
-          <code class="ruby">	def index</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="5">
-          <span class="hits">2</span>
-          
-          <code class="ruby">		@users = User.all</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="6">
-          <span class="hits">2</span>
-          
-          <code class="ruby">		unless current_user.admin == &quot;true&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
-          
-          <code class="ruby">		redirect_to root_path, notice: &quot;Uh oh, you don&#39;t have permission to view that!&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
-          
-          
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="9">
-          
-          
-          <code class="ruby">	end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="10">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="11">
+        <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
           <code class="ruby">	def new</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="12">
-          <span class="hits">2</span>
+        <li class="never" data-hits="" data-linenumber="6">
           
-          <code class="ruby">		@user = User.new</code>
+          
+          <code class="ruby">		#are they already logged in?</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		if current_user #They are! Can&#39;t create them again.</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="8">
+          
+          
+          <code class="ruby">			redirect_to users_url</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">		else</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			@user = User.new</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">			render :new</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">		end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
@@ -583,256 +583,148 @@
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">	def show</code>
+          <code class="ruby">	def form</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="16">
-          <span class="hits">3</span>
+        <li class="missed" data-hits="0" data-linenumber="16">
           
-          <code class="ruby">		@user = User.find(params[:id])</code>
+          
+          <code class="ruby">		@user = User.new</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="17">
-          <span class="hits">3</span>
-          
-          <code class="ruby">		unless current_user == @user || current_user.admin</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="18">
-          <span class="hits">2</span>
-          
-          <code class="ruby">			redirect_to users_path, notice: &quot;You can only edit your own profile.&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">			#CM- I So Smart</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">	end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
+        <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
           <code class="ruby">	def create</code>
         </li>
       
+        <li class="missed" data-hits="0" data-linenumber="20">
+          
+          
+          <code class="ruby">		user = User.find_by(email: params[:user][:email])</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="21">
+          
+          
+          <code class="ruby">		if user</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">		# authenticate user</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="23">
+          
+          
+          <code class="ruby">			if user.authenticate(params[:user][:password])</code>
+        </li>
+      
         <li class="missed" data-hits="0" data-linenumber="24">
           
           
-          <code class="ruby">		@user = User.create(params[:user].permit([:first_name, :last_name, :email, :address, :city, :state, :zipcode, :password, :password_confirmation]))</code>
+          <code class="ruby">				session[:user_id] = user.id</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="missed" data-hits="0" data-linenumber="25">
           
           
-          <code class="ruby">		</code>
+          <code class="ruby">				redirect_to users_url</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="26">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
-          <code class="ruby">		respond_to do |format|</code>
+          <code class="ruby">			else </code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="27">
           
           
-          <code class="ruby">		 	if @user.save</code>
+          <code class="ruby">				flash[:notice] = &quot;Unable to sign you in.&quot;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="28">
           
           
-          <code class="ruby">		 		UsersMailer.new_user_notification(@user).deliver</code>
+          <code class="ruby">				render :new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
-          <code class="ruby">		 		format.html { redirect_to users_url, notice: &#39;Welcome to Hop To It!&#39; }</code>
+          <code class="ruby">			end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="30">
           
           
-          <code class="ruby">		 	else</code>
+          <code class="ruby">		end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="31">
+        <li class="never" data-hits="" data-linenumber="31">
           
           
-          <code class="ruby">		 		format.html { render action: &#39;new&#39; }</code>
+          <code class="ruby">	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">		 	end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="33">
-          
-          
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="34">
-          
-          
-          <code class="ruby">	end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="36">
-          <span class="hits">1</span>
-          
-          <code class="ruby">	def edit</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="37">
-          
-          
-          <code class="ruby">		@user = User.find(params[:id])</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="38">
-          
-          
-          <code class="ruby">		unless current_user == @user</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="39">
-          
-          
-          <code class="ruby">			redirect_to users_path, notice: &quot;You can only edit your own profile.&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
-          
-          
-          <code class="ruby">			#CM- I So Smart</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="41">
-          
-          
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby">	end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="43">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
-          
-          <code class="ruby">	def update</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
-          
-          <code class="ruby">		@user = User.find(params[:id])</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
-          
-          <code class="ruby">		if @user.update_attributes(params[:user].permit(:first_name, :last_name, :email, :address, :city, :state, :zipcode))</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="47">
-          
-          
-          <code class="ruby">			redirect_to action: &#39;show&#39;, id: @user</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
-          <code class="ruby">		else</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="49">
-          
-          
-          <code class="ruby">			render &#39;edit&#39;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
-          <code class="ruby">		end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="51">
-          
-          
-          <code class="ruby">	end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="52">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="53">
+        <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
           <code class="ruby">	def destroy</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="54">
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">		User.find(params[:id]).destroy</code>
+          <code class="ruby">		session[:user_id] = nil</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="55">
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">		redirect_to users_url</code>
+          <code class="ruby">		redirect_to root_path,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">		notice: &quot;See you again soon!&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby">	end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="57">
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby">end</code>
@@ -935,11 +827,11 @@
         <div class="source_table" id="fa5611b0125eb4f76950a3252761bc6de48b179f">
   <div class="header">
     <h3>app/models/user.rb</h3>
-    <h4><span class="red">66.67 %</span> covered</h4>
+    <h4><span class="red">76.67 %</span> covered</h4>
     <div>
       <b>30</b> relevant lines. 
-      <span class="green"><b>20</b> lines covered</span> and
-      <span class="red"><b>10</b> lines missed.</span>
+      <span class="green"><b>23</b> lines covered</span> and
+      <span class="red"><b>7</b> lines missed.</span>
     </div>
   </div>
   
@@ -1210,20 +1102,20 @@
           <code class="ruby">  def hash_password</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="45">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="7" data-linenumber="45">
+          <span class="hits">7</span>
           
           <code class="ruby">    if password.present?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
           
           <code class="ruby">      self.salt = BCrypt::Engine.generate_salt</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="47">
-          
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
           
           <code class="ruby">      self.hashed_password =</code>
         </li>
@@ -1234,8 +1126,8 @@
           <code class="ruby">      BCrypt::Engine.hash_secret(password, self.salt)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="49">
-          
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
           
           <code class="ruby">      password = password_confirmation = nil</code>
         </li>

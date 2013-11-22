@@ -44,7 +44,7 @@ describe UsersController do
 	describe "GET #show" do
 
 		it "assigns the requested user to @user" do
-		ApplicationController.any_instance.stub(:current_user).and_return(@testuser)
+			ApplicationController.any_instance.stub(:current_user).and_return(@testuser)
 			testuser = FactoryGirl.create(:user)
 			get :show, id: testuser
 			expect(assigns(:user)).to eq(testuser)
