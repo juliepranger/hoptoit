@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe IssuesController do
 	before do	
-		@testissue = Issue.create(title: 'Sandy', desc: 'this is a hurricane relief')
+		@testissue = Issue.create(title: 'Sandy', desc: 'this is a hurricane relief', funding_goal: '100')
 	end
 
 	describe 'GET #index' do
@@ -18,27 +18,39 @@ describe IssuesController do
  		end
 	end 
 	describe "GET #new" do
-		it "creates a new form template" do
-			get :new
-			expect(response).to render_template("new")
-		end
 		it "creates a new issue" do
-			issue = Issue.new
+			issue = Issue.create(
+				title: "title",
+				desc: "this is the text",
+				funding_goal: 1000
+				)
 			get :new
 			expect(assigns(:issue == issue))
 		end
-	end 
-	describe "get the show template" do
-		it "assigns the requested user to @user" do
-			testissue = FactoryGirl.create(:issue)
-			get :show, id: testissue
-			expect(assigns(:issue)).to eq(testissue)
-		end
-		it "renders the show template" do 
-			get :show, id:FactoryGirl.create(:user)
-			expect(response).to render_template("show")
-		end
 	end
+	describe "GET #edit" do
+		it "edits the existing issue" do
+			issue = Issue.create(
+				title: "title",
+				desc: "this is the text",
+				funding_goal: 1000,
+				
+				)
+    		patch :update, :id => issue.id, issue: {:funding_goal => 1}
+    		expect(issue.funding_goal)==1
+		end
+	end 
+	describe "destroying and issue" do
+		it "can destroy an issue from the database" do
+			issue = Issue.create(
+				title: "title",
+				desc: "this is the text",
+				funding_goal: 1000
+				)
+			post :destroy, id: issue.id
+			expect(Issue.last).to_not eq(issue.id)
+		end
+	end 
 end 
 
 # require 'spec_helper'

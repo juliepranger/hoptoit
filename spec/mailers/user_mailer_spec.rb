@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe UserMailer do
+describe UsersMailer do
   describe "new_user_notification" do
     let(:mail) { UserMailer.new_user_notification }
 
