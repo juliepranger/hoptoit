@@ -30,13 +30,14 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-8">
-		<%= form_tag(donate_issue_path, method: "post") do %>
+	
+		<%= form_tag(donate_issue_path, method: "post", :class => "col-md-2 form-group form-inline") do %>
+ 			
  			<%= label_tag(:q, "Donate:") %>
-  			<%= text_field_tag(:q) %>
-  			<%= submit_tag("Donate") %>
+  			<%= text_field_tag(:q,nil, :class => 'form-control') %>
+  			<%= submit_tag("Donate", :class => "btn btn-default") %>
+  			
 			<% end %>
- 	</div>
 </div>
 
 
