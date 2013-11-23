@@ -80,6 +80,8 @@
         null,
         null,
         1,
+        null,
+        1,
         null
       ],
       "/Users/juliepranger/Documents/wdi/hoptoit/config/initializers/backtrace_silencers.rb": [
@@ -291,9 +293,9 @@
         null,
         null,
         1,
-        0,
+        2,
         null,
-        0,
+        2,
         null,
         null
       ],
@@ -342,7 +344,7 @@
         1,
         null,
         1,
-        1,
+        3,
         1,
         1,
         null,
@@ -353,6 +355,6 @@
         null
       ]
     },
-    "timestamp": 1385168165
+    "timestamp": 1385169015
   }
 }
