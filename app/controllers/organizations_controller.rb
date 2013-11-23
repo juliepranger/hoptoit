@@ -57,7 +57,6 @@ class OrganizationsController < ApplicationController
     @org.creator = current_user  ##we'll need this to work once we get users / auth up and running
     @org.users << current_user
     if @org.save!
-      puts "hello"
       respond_with(@org)
     else
       respond_with(@org.errors) {|org| org.html {render "new"}}

@@ -2,9 +2,15 @@ require 'spec_helper'
 
 
 describe OrganizationsController do
-  render_views
+  # render_views
   let(:charity) { FactoryGirl.create :charity_verifier }
   let(:org) { FactoryGirl.create :organization, :charity_verifier => charity }
+  before :each do
+    current_user = FactoryGirl.create(:user)
+    ApplicationController.any_instance.stub(:current_user).and_return(current_user)
+    org.users << current_user
+  end
+
 
   it "has a valid factories for org & charity" do
     expect(org).to be_valid
@@ -18,6 +24,7 @@ describe OrganizationsController do
 
 
   it "renders a new page" do
+   
     get :new, id: charity.id
     expect(response).to render_template("new")
   end
@@ -34,15 +41,11 @@ describe OrganizationsController do
   end
 
   it "renders an edit page" do
-    org = FactoryGirl.create(:organization)
-    get :edit, :id => org.id
+    get :edit, :id => org
     expect(response).to render_template("edit")
   end
 
   it "posts new organizations to the database" do
-    current_user = FactoryGirl.create(:user)
-    ApplicationController.any_instance.stub(:current_user).and_return(current_user)
-    post :create, organization: FactoryGirl.attributes_for(:organization, :charity_verifier_id => charity.id)
     expect{ 
       post :create, organization: FactoryGirl.attributes_for(:organization, :charity_verifier_id => charity.id)
       }.to change(Organization, :count).by(1)
