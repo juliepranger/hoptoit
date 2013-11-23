@@ -1,8 +1,8 @@
 class CharityVerifier < ActiveRecord::Base
   belongs_to :organization
 
-  def populateData
-    files = ['db/EO1.LST','db/EO2.LST','db/EO3.LST','db/EO4.LST']
+  def populateData(files)
+    
     files.each do |lstFile|
       file = File.open(lstFile)
       file.each do |line|
