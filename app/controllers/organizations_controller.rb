@@ -31,6 +31,7 @@ class OrganizationsController < ApplicationController
     #page where new orgs will be created by user
     #get attributes of charity from the verifier
     @verified_charity = CharityVerifier.find(params[:id])
+    #create new org record and set attributes from charity verifier
     @org = Organization.new
     @org.organization_name = @verified_charity.org_name
     @org.ein = @verified_charity.ein
@@ -55,7 +56,7 @@ class OrganizationsController < ApplicationController
     @org.charity_verifier = CharityVerifier.find(params[:organization][:charity_verifier_id])
     @org.creator = current_user  ##we'll need this to work once we get users / auth up and running
     @org.users << current_user
-    if @org.save
+    if @org.save!
       respond_with(@org)
     else
       respond_with(@org.errors) {|org| org.html {render "new"}}

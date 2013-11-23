@@ -7,7 +7,7 @@ Built On:
 
 * Rails 4
 * Ruby 2.0.0-p247
-* Postgres
+* PostgreSQL
 
 
 *Created at General Assembly Los Angeles*
