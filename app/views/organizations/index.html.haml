@@ -1,9 +1,10 @@
-%h1 Organizations#Index
+%h1 Organizations
 
 =link_to "new org", organizations_search_path
 
-%ul
+.row
   -@orgs.each do |o|
-    %li
+    .col-md-6
       ="#{o.organization_name}, #{o.city}, #{o.state}"
+      =image_tag o.logo.url(:medium), class:"img-responsive img-rounded"
       =link_to "view", organization_path(o.id)

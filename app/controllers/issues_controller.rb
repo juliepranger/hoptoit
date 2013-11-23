@@ -19,6 +19,8 @@ class IssuesController < ApplicationController
 		@issue = Issue.new(issue_params)
 		@issue.creator = current_user
 		@issue.votes=0
+		@issue.pledged_total=0
+		@issue.num_backers=0
 		@issue.organizations << Organization.find(params[:issue][:organization_id])
 		@issue.save
 		redirect_to issues_path
@@ -28,6 +30,13 @@ class IssuesController < ApplicationController
 	
 		@issue = Issue.find(params[:id])
 	
+	end
+	def donate
+		@issue = Issue.find(params[:id])
+		@issue.pledged_total += params[:q].to_i
+		@issue.num_backers += 1
+		@issue.save
+		redirect_to issues_path(@issue)
 	end
 
 	def index 

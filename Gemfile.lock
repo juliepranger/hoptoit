@@ -4,6 +4,16 @@ GIT
   specs:
     bcrypt-ruby (3.1.2)
 
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 6459f2c00f16051ec397fe911bc21078291ce3b8
+  specs:
+    paperclip (3.5.2)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -43,6 +53,10 @@ GEM
       xpath (~> 2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.3)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -217,6 +231,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   letter_opener
+  paperclip!
   passenger
   pg
   rails (= 4.0.1)
