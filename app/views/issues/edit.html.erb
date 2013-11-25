@@ -1,25 +1,30 @@
- <%= form_for @issue do |f| %>
+<div class="row">
+  <div class="col-md-12">
+    <h1>Edit</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+      <%= form_for @issue do |f| %>
       <p>
         <%= f.label :title, class:"inputTextAlt" %>
-        <%= f.text_field :title, class:"inputReset" %>
+        <%= f.text_field :title, class:"inputReset", :class => 'form-control'  %>
       </p>
       <p>
         <%= f.label :desc, class:"inputTextAlt"  %>
-        <%= f.text_field :desc, class:"inputReset" %>
+        <%= f.text_field :desc, class:"inputReset", :class => 'form-control'  %>
       </p>
       <p>
         <%= f.label :funding_goal, class:"inputTextAlt"  %>
-        <%= f.text_field :funding_goal, class:"inputReset" %>
-      </p>
-      <p>
-        <%= f.label :num_backers, class:"inputTextAlt"  %>
-        <%= f.text_field :num_backers, class:"inputReset" %>
+        <%= f.text_field :funding_goal, class:"inputReset", :class => 'form-control'  %>
       </p>
       <p>
         <%= f.label :funding_date, class:"inputTextAlt" %>
-        <%= f.text_field :funding_date, class:"inputReset" %>
+        <%= f.text_field :funding_date, class:"inputReset", :class => 'form-control'  %>
       </p>
       <p>
         <%= f.submit "Save", class:"btnmain"%>
       </p>
     <% end %>
+  </div>
+</div>

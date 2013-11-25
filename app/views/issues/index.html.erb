@@ -1,58 +1,64 @@
-<h1> Issues </h1>
-
-<ul data-no-turbolink>
+<div class="row">
+	<div class="col-md-8">
+		<h1> Issues </h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<ul data-no-turbolink class="listStyle">
 
 		<% @issues.each do |i| %>
 			<li>
-				Title:<%= i.title %>
+				<h2><%= i.title %></h2>
 			</li>	
-				<ul>		
+				<ul class="listStyle">		
 					<li>
-						Description: <%= i.desc %>
-					</li>
-					
-					
-					<li>
-						<div class='vote'>Votes: <span id='vote<%=i.id%>'><%= i.votes %></span></div>
-						<a href='#' onclick="vote(<%= i.id %>, 1);" class="glyphicon glyphicon-thumbs-up"></a>
-						<a href='#' onclick="vote(<%= i.id %>, -1);" class="glyphicon glyphicon-thumbs-down"></a>
-					</li>	
-					<li>
-						Funding Goal: <%= number_to_currency(i.funding_goal, precision: 0) %>
-					</li>	
-					<li>
-						Pledged Total: <%= number_to_currency(i.pledged_total, precision: 0) %>
-					</li>	
-					<li>
-						Number of Backers: <%= i.num_backers %>
-					</li>	
-					<li>
-						Funding Date: <%= i.funding_date.to_formatted_s(:long_ordinal) %>
+						<h4><%= i.desc %></h4>
 					</li>
 					<li>
-						Organization: <% i.organizations.each do |o| %>
-							<%= o.organization_name %>
-							<br />
+						<h4>Organization: <% i.organizations.each do |o| %>
+							<%= o.organization_name %></h4>
+							
 							<%end%>
 					</li>
 					<li>
-						<%= link_to "View Issue", issue_path(i.id) %>
+						<div class='vote'><h5>Votes: <span id='vote<%=i.id%>'><%= i.votes %></span></h5></div>
 					</li>
 					<li>
+						<h4><a href='#' onclick="vote(<%= i.id %>, 1);" class="glyphicon glyphicon-thumbs-up"></a>
+						<a href='#' onclick="vote(<%= i.id %>, -1);" class="glyphicon glyphicon-thumbs-down"></a></h4>
+					</li>	
+					<li>
+						<h4>Funding Goal: <%= number_to_currency(i.funding_goal, precision: 0) %></h4>
+					</li>	
+					<li>
+						<h4>Pledged Total: <%= number_to_currency(i.pledged_total, precision: 0) %></h4>
+					</li>	
+					<li>
+						<h4>Number of Backers: <%= i.num_backers %></h4>
+					</li>	
+					<li>
+						<h4>Funding Date: <%= i.funding_date.to_formatted_s(:long_ordinal) %></h4>
+					</li>
+					
+					<li>
+						<button class="btn btn-default"><%= link_to "View Issue", issue_path(i.id) %></button>
+					</li>
+					<br />
+					<li>
 						<% if current_user %>
-      					<%=link_to "Delete", issue_path(:id => i.id), method:'delete',:confirm =>" ARE YOU SURE YOU WANT TO DELETE THIS ISSUE????"%>
+      					<button class="btn btn-default"><%=link_to "Delete", issue_path(:id => i.id), method:'delete',:confirm =>" ARE YOU SURE YOU WANT TO DELETE THIS ISSUE????"%></button>
 				      <% end %>	
 					</li>
+					<br />
 					<li>
 						<% if current_user %>
-						<%=link_to "Edit", edit_issue_path(:id => i.id), method:'edit' %>
+						<button class="btn btn-default"><%=link_to "Edit", edit_issue_path(:id => i.id), method:'edit' %></button>
 						<% end %>
 					</li>
 				</ul>	
 		<% end %>
 
-
-		
-
-
-<ul>
+			<ul>
+	</div>
+<div>
