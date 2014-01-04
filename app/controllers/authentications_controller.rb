@@ -5,7 +5,7 @@ class AuthenticationsController < ApplicationController
 	def new
 		#are they already logged in?
 		if current_user #They are! Can't create them again.
-			redirect_to users_url
+			redirect_to issues_path
 		else
 			@user = User.new
 			render :new
@@ -22,7 +22,7 @@ class AuthenticationsController < ApplicationController
 		# authenticate user
 			if user.authenticate(params[:user][:password])
 				session[:user_id] = user.id
-				redirect_to users_url
+				redirect_to issues_path
 			else 
 				flash[:notice] = "Unable to sign you in."
 				render :new

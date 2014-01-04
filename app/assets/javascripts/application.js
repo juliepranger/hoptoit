@@ -10,20 +10,19 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
 //= require_tree .
 
 
-function vote(issueid, x){
-	$.get('issues/'+issueid+'/vote?amount='+x,
-		function(databack){
-			// console.log(databack);
-				$('#vote'+issueid).html(databack);
-
-		});
+function vote(issueid, x) {
+	$.get('issues/' + issueid + '/vote?amount=' + x,
+		function(databack) {
+      // console.log(databack);
+      $('#vote' + issueid).html(databack);
+    });
 }
 
 
