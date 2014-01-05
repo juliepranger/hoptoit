@@ -24,7 +24,7 @@ class OrganizationsController < ApplicationController
   end
 
   def search
-    #use this method to find  a charity, it will pass to new
+    #use this method to find a charity, it will pass to #new
   end
 
   def new
