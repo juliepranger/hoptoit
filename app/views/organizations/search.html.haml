@@ -1,5 +1,6 @@
 -content_for :head do
-  =javascript_include_tag "org_search"
+  :javascript
+    $(document).on('page:load ready', organizationSearch);
 
 .row
   .col-md-3

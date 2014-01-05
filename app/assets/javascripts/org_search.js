@@ -1,10 +1,10 @@
-$(function() {
+function organizationSearch() {
   var offset = 0;
 
   $('#nameBox').keypress(function() {
     var length = $('#nameBox').val().length;
     offset = 0;
-    $(".charityReturns table").html("");
+    $('.charityReturns table').html('');
     if (length >= 3) {
       getJson();
     }
@@ -44,4 +44,4 @@ $(function() {
     }
   }
 
-});
+}

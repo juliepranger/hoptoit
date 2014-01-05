@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-// Instead of requiring tree... use yield head and call for the js you need when you need it. //=require_tree .
+//= require_tree .
 
 
 function vote(issueid, x) {
