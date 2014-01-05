@@ -1,11 +1,10 @@
 $(function() {
-  console.log('loaded!');
   var offset = 0;
 
   $('#nameBox').keypress(function() {
     var length = $('#nameBox').val().length;
     offset = 0;
-    
+    $(".charityReturns table").html("");
     if (length >= 3) {
       getJson();
     }
@@ -15,7 +14,7 @@ $(function() {
   // get more charities from the db. (hardcoded to 20 at a time)
   function loadMore() {
     var win = $(window);
-    if (win.height() + win.scrollTop() >=  $(document).height()) {
+    if (win.height() + win.scrollTop() >= $(document).height()) {
       offset += 20;
       getJson();
     }
@@ -23,7 +22,7 @@ $(function() {
 
   function getJson() {
     // stop trying to get data if there is no more to display
-    if (offset !== false){
+    if (offset !== false) {
       $.get('/charityverifier/' + $('#nameBox').val() + '/' + offset, fillText);
     }
   }
