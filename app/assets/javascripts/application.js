@@ -10,20 +10,19 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap
+// Instead of requiring tree... use yield head and call for the js you need when you need it. //=require_tree .
 
 
-function vote(issueid, x){
-	$.get('issues/'+issueid+'/vote?amount='+x,
-		function(databack){
-			// console.log(databack);
-				$('#vote'+issueid).html(databack);
-
-		});
+function vote(issueid, x) {
+	$.get('issues/' + issueid + '/vote?amount=' + x,
+		function(databack) {
+      // console.log(databack);
+      $('#vote' + issueid).html(databack);
+    });
 }
 
 

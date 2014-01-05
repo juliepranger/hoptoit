@@ -30,7 +30,7 @@ Hoptoit::Application.routes.draw do
 
 
   #routes for charity verification json
-  get 'charityverifier/:name' => 'charity_verifiers#search'
+  get 'charityverifier/:name/:offset' => 'charity_verifiers#search'
 
   #route for new organization search page
   get 'organizations/search' => 'organizations#search'

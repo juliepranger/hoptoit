@@ -1,6 +1,7 @@
+/ .round-btn.upper-right
+=link_to "<span>Find a Non-Profit</span>".html_safe, organizations_search_path, class: 'round-btn upper-right'
 %h1 Organizations
 
-=link_to "Create a new Organization", organizations_search_path, class:"btn btn-default"
 
 .row
   -@orgs.each do |o|
