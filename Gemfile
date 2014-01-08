@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
 
+
+
 #add paperclip
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
+#add online storage for paperclip via aws
+gem 'aws-sdk'
 
 #add dotenv so that secrets do not get exposed on Github
 gem 'dotenv-rails', :groups => [:development, :test]
@@ -10,7 +14,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 ruby "2.0.0"
 
 
-#use Passenger as the production server ('cause it's awesome) (EP)
+#use Passenger as the production server (EP)
 gem 'passenger'
 
 #I prefer to program in HAML... it saves SO much time (EP)
@@ -89,5 +93,5 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'thin'
+  # gem 'thin'
 end
