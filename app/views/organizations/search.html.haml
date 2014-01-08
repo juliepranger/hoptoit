@@ -1,6 +1,4 @@
--content_for :head do
-  :javascript
-    $(document).on('page:load ready', organizationSearch);
+-#content_for :head do
 
 .row
   .col-md-3
@@ -11,3 +9,5 @@
   .col-md-3
   .col-md-6.charityReturns
     %table{class:"table table-condensed table-hover"}
+:javascript
+  document.addEventListener('page:change', organizationSearch);
